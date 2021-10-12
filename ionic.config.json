@@ -1,0 +1,7 @@
+{
+  "name": "mg_app_AP5MP",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
