@@ -1,0 +1,46 @@
+<ion-content [fullscreen]="true">
+  <div class="wrapper-container">
+    <ion-header class="ion-no-border">
+      <ion-toolbar>
+        <ion-title size="large" class="ion-text-center">
+          <a class="home-link" href="#">Movie Generator</a>
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <div class="main-content">
+      <h1 class="font-h1">Recommended movies</h1>
+      <ion-slides [options]="option">
+        <ion-slide>
+          <ion-card>
+            <img src="../../assets/django.jpg" alt="" />
+          </ion-card>
+        </ion-slide>
+        <ion-slide>
+          <ion-card>
+            <img src="../../assets/django.jpg" alt="" />
+          </ion-card>
+        </ion-slide>
+        <ion-slide>
+          <ion-card>
+            <img src="../../assets/django.jpg" alt="" />
+          </ion-card>
+        </ion-slide>
+        <ion-slide>
+          <ion-card>
+            <img src="../../assets/django.jpg" alt="" />
+          </ion-card>
+        </ion-slide>
+        <ion-slide>
+          <ion-card>
+            <img src="../../assets/django.jpg" alt="" />
+          </ion-card>
+        </ion-slide>
+      </ion-slides>
+      <ion-grid>
+        <ion-button class="generate-btn">
+          <span class="font-span">Generate</span>
+        </ion-button>
+      </ion-grid>
+    </div>
+  </div>
+</ion-content>

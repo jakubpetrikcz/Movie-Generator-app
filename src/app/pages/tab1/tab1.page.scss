@@ -1,0 +1,109 @@
+.font-h1 {
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
+}
+
+.font-span {
+  font-size: 18px;
+  font-weight: 400;
+  color: white;
+}
+
+.home-link {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  letter-spacing: 0.125rem;
+  font-size: 1.875rem;
+  font-weight: 800;
+}
+
+ion-header {
+  margin-bottom: 0.625rem;
+}
+
+.wrapper-container {
+  transform: translateY(15%);
+}
+
+ion-content {
+  --background: linear-gradient(162deg, #03055ea6 20%, #03055ea6 100%),
+    url("../../../assets/vanishing-stripes.svg") bottom no-repeat;
+}
+
+ion-header ion-toolbar {
+  --background: transparent;
+}
+
+/*
+ion-list {
+  transform: translateY(8%);
+
+  ion-list-header {
+    margin-bottom: rem-calc(10px);
+    letter-spacing: rem-calc(3px);
+    width: 100%;
+    padding-inline-start: none;
+
+    ion-label {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+  }
+}
+*/
+
+/*
+.background {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(
+      162deg,
+      rgba(56, 70, 108, 0.8) 20%,
+      rgba(56, 70, 108, 0.8) 100%
+    ),
+    url("../../assets/vanishing-stripes.svg") bottom no-repeat;
+}
+*/
+
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+ion-card {
+  width: 100%;
+  height: 18.75rem;
+  box-shadow: none;
+  border-radius: 12px;
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    transform: scale(1.1, 1.1) rotate(1deg);
+    transition: 600ms all ease-in-out;
+  }
+}
+
+.swiper-slide {
+  transition: 400ms all ease-in-out;
+}
+
+.swiper-slide-active {
+  transform: scale(1.05, 1.05);
+
+  ion-card {
+    img {
+      transform: scale(1, 1);
+    }
+  }
+}
+
+.generate-btn {
+  margin-top: 20px;
+  width: 120px;
+  height: 3.125rem;
+  --background: #ff002b;
+}
