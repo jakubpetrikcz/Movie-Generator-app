@@ -1,9 +1,38 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>movieDetails</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tab2"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ information?.Genre }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-card *ngIf="information">
+    <img [src]="'http://image.tmdb.org/t/p/w780/' + information.poster_path" />
+    <h1>{{information.title}}</h1>
+    <h3>PLOT</h3>
+    <p>{{information.overview}}</p>
+    <div class="rating-directors">
+      <div>
+        <h4>RATING</h4>
+        <div class="score">{{information.vote_average}}</div>
+      </div>
+      <div class="director">
+        <h4>DIRECTOR</h4>
+        <p>{{directors}}</p>
+      </div>
+    </div>
+    <div class="movie-information">
+      <ion-item>
+        <p>{{time}}</p>
+      </ion-item>
+      <ion-item>
+        <p>{{information.budget}}</p>
+      </ion-item>
+      <ion-item>
+        <p>{{information.revenue}}</p>
+      </ion-item>
+    </div>
+  </ion-card>
 </ion-content>

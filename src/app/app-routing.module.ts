@@ -7,6 +7,18 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/tabs/tabs.module').then((m) => m.TabsPageModule),
   },
+  {
+    path: 'tab2',
+    loadChildren: () =>
+      import('./pages/tab2/tab2.module').then((m) => m.Tab2PageModule),
+  },
+  {
+    path: 'tab2/:id',
+    loadChildren: () =>
+      import('./pages/movie-details/movie-details.module').then(
+        (m) => m.MovieDetailsPageModule
+      ),
+  },
 ];
 @NgModule({
   imports: [

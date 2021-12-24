@@ -8,14 +8,20 @@ import { MovieService } from '../../services/movie.service';
   styleUrls: ['tab2.page.scss'],
 })
 export class Tab2Page {
-  datauser: any;
+  //datauser: any;
 
-  constructor(public api: MovieService) {}
+  results: Observable<any>;
+  searchTerm = '';
 
-  ngOnInit() {
-    this.getDataUser();
+  constructor(private movieService: MovieService) {}
+
+  ngOnInit() {}
+
+  searchChanged() {
+    this.results = this.movieService.searchData(this.searchTerm);
   }
 
+  /*
   async getDataUser() {
     await this.api.getDataUser().subscribe(
       (res) => {
@@ -28,6 +34,7 @@ export class Tab2Page {
       }
     );
   }
+  */
 
   /*
   searchChanged() {
