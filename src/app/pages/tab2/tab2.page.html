@@ -13,7 +13,7 @@
 
   <ion-searchbar
     [(ngModel)]="searchTerm"
-    (ionChange)="searchChanged($event)"
+    (ionChange)="searchChanged()"
   ></ion-searchbar>
 
   <ion-list>
@@ -24,7 +24,7 @@
     >
       <img
         [src]="'http://image.tmdb.org/t/p/w780/' + item.poster_path"
-        *ngIf="item.poster_path != null"
+        *ngIf="item.poster_path !== null"
       />
       {{item.title}}
     </ion-card>

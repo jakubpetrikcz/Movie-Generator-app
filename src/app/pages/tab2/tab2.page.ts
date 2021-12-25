@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { MovieService } from '../../services/movie.service';
 
@@ -8,37 +9,23 @@ import { MovieService } from '../../services/movie.service';
   styleUrls: ['tab2.page.scss'],
 })
 export class Tab2Page {
-  //datauser: any;
-
+  articles: any;
   results: Observable<any>;
   searchTerm = '';
 
-  constructor(private movieService: MovieService) {}
+  constructor(private movieService: MovieService) {
+    this.searchChanged();
+  }
 
   ngOnInit() {}
 
   searchChanged() {
-    this.results = this.movieService.searchData(this.searchTerm);
+    if (this.searchTerm !== '') {
+      this.results = this.movieService.searchData(this.searchTerm);
+    } else {
+      this.results = this.movieService.getPopular();
+      console.log(this.results);
+      //console.log(news);
+    }
   }
-
-  /*
-  async getDataUser() {
-    await this.api.getDataUser().subscribe(
-      (res) => {
-        console.log(res);
-        this.datauser = res.results;
-        console.log(this.datauser);
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
-  }
-  */
-
-  /*
-  searchChanged() {
-    this.results = this.movieService.searchData(this.searchTerm, this.type);
-  }
-  */
 }

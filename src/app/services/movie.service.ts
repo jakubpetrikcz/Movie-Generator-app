@@ -39,9 +39,6 @@ export class MovieService {
   }
 
   getDetails(id) {
-    const credits = this.http.get(
-      `${this.url}movie/${id}/credits?api_key=${this.apiKey}`
-    );
     return this.http.get(`${this.url}movie/${id}?api_key=${this.apiKey}`);
   }
 
@@ -51,33 +48,20 @@ export class MovieService {
     );
   }
 
+  getPopular() {
+    return this.http
+      .get(`${this.url}movie/popular?api_key=${this.apiKey}&language=en-US`)
+      .pipe(
+        map((results) => {
+          console.log('RAW: ', results);
+          return results['results'];
+        })
+      );
+  }
+
   calcTime = (time) => {
     const hours = Math.floor(time / 60);
     const mins = time % 60;
     return `${hours}h ${mins}m`;
   };
-
-  /*
-  private handleError(error: HttpErrorResponse) {
-    if (error.error instanceof ErrorEvent) {
-      console.error('An error occurred:', error.error.message);
-    } else {
-      console.error(
-        `Backend returned code ${error.status}, ` + `body was: ${error.error}`
-      );
-    }
-    return throwError('Something bad happened; please try again later.');
-  }
-
-  private extractData(res: Response) {
-    let body = res;
-    return body || {};
-  }
-
-  getDataUser(): Observable<any> {
-    return this.http
-      .get(apiUrl, httpOptions)
-      .pipe(map(this.extractData), catchError(this.handleError));
-  }
-  */
 }

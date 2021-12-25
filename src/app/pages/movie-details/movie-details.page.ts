@@ -11,6 +11,8 @@ export class MovieDetailsPage implements OnInit {
   information = null;
   credits = null;
   directors = null;
+  actors = null;
+  genres = null;
   time = null;
 
   constructor(
@@ -19,11 +21,18 @@ export class MovieDetailsPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    let id = this.activatedRoute.snapshot.paramMap.get('id');
+    const id = this.activatedRoute.snapshot.paramMap.get('id');
 
     this.movieService.getDetails(id).subscribe((result) => {
       console.log('details: ', result);
+      console.log('genres: ', result['genres']);
       this.information = result;
+
+      const genresName = this.information.genres.map(
+        (genreName) => genreName.name
+      );
+      console.log(genresName);
+      this.genres = genresName;
 
       this.time = this.movieService.calcTime(this.information.runtime);
       console.log(this.time);
@@ -32,11 +41,14 @@ export class MovieDetailsPage implements OnInit {
     this.movieService.getCredits(id).subscribe((resultCredits) => {
       console.log('credits: ', resultCredits);
       this.credits = resultCredits;
+
       const director = this.credits.crew.filter(
         (member) => member.job === 'Director'
       );
       console.log('Directors: ', director[0].name);
       this.directors = director[0].name;
+
+      this.actors = this.credits.cast;
     });
   }
 

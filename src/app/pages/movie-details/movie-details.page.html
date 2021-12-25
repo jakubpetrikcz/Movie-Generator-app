@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/tab2"></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ information?.Genre }}</ion-title>
+    <ion-title>{{ genres }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -33,6 +33,19 @@
       <ion-item>
         <p>{{information.revenue}}</p>
       </ion-item>
+    </div>
+    <div class="actors-container">
+      <h4>ACTORS</h4>
+      <div class="actors-box">
+        <div class="actors" *ngFor="let actor of actors">
+          <img
+            [src]="'http://image.tmdb.org/t/p/w780/' + actor.profile_path"
+            *ngIf="actor.profile_path !== null"
+          />
+          <h5>{{actor.name}}</h5>
+          <p>{{actor.character}}</p>
+        </div>
+      </div>
     </div>
   </ion-card>
 </ion-content>
