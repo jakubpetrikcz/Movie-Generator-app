@@ -1,6 +1,6 @@
 {
-	"appId": "io.ionic.starter",
-	"appName": "mg_app_AP5MP",
-	"webDir": "www",
-	"bundledWebRuntime": false
+  "appId": "io.ionic.starter",
+  "appName": "MG",
+  "webDir": "www",
+  "bundledWebRuntime": false
 }

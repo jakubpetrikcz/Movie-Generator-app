@@ -14,13 +14,7 @@ ion-tab-bar {
 ion-tab-bar {
   --background: #121212;
   --border: 0;
-  position: absolute;
-  bottom: 2%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
-  max-width: 400px;
-  border-radius: 30px;
+  width: 100%;
   margin: 0 auto;
   max-height: 56px;
   height: 56px;

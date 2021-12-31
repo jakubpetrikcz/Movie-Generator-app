@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 import { Observable } from 'rxjs';
+import { finalize } from 'rxjs/operators';
 import { MovieService } from '../../services/movie.service';
 
 @Component({
@@ -13,7 +15,10 @@ export class Tab2Page {
   results: Observable<any>;
   searchTerm = '';
 
-  constructor(private movieService: MovieService) {
+  constructor(
+    private movieService: MovieService,
+    private loadingController: LoadingController
+  ) {
     this.searchChanged();
   }
 
@@ -23,9 +28,27 @@ export class Tab2Page {
     if (this.searchTerm !== '') {
       this.results = this.movieService.searchData(this.searchTerm);
     } else {
-      this.results = this.movieService.getPopular();
+      const refresh = event ? true : false;
+      this.results = this.movieService.getUsers(refresh);
       console.log(this.results);
-      //console.log(news);
     }
+  }
+
+  async refreshUsers(event?) {
+    const loading = await this.loadingController.create({
+      message: 'Loading data..',
+    });
+    await loading.present();
+
+    const refresh = event ? true : false;
+
+    this.results = this.movieService.getUsers(refresh).pipe(
+      finalize(() => {
+        if (event) {
+          event.target.complete();
+        }
+        loading.dismiss();
+      })
+    );
   }
 }

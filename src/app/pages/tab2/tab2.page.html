@@ -16,11 +16,15 @@
     (ionChange)="searchChanged()"
   ></ion-searchbar>
 
+  <ion-refresher slot="fixed" (ionRefresh)="refreshUsers($event)">
+    <ion-refresher-content></ion-refresher-content
+  ></ion-refresher>
+
   <ion-list>
     <ion-card
       button
       *ngFor="let item of (results | async)"
-      [routerLink]="['/', 'tab2', item.id]"
+      [routerLink]="['/tabs/tab2', item.id]"
     >
       <img
         [src]="'http://image.tmdb.org/t/p/w780/' + item.poster_path"

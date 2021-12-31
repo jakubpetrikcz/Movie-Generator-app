@@ -17,6 +17,30 @@ const routes: Routes = [
         loadChildren: () =>
           import('../../pages/tab2/tab2.module').then((m) => m.Tab2PageModule),
       },
+      {
+        path: 'tab3',
+        loadChildren: () =>
+          import('../../pages/tab3/tab3.module').then((m) => m.Tab3PageModule),
+      },
+      {
+        path: 'tab4',
+        loadChildren: () =>
+          import('../../pages/tab4/tab4.module').then((m) => m.Tab4PageModule),
+      },
+      {
+        path: 'tab1/:id',
+        loadChildren: () =>
+          import('../../pages/movie-details/movie-details.module').then(
+            (m) => m.MovieDetailsPageModule
+          ),
+      },
+      {
+        path: 'tab2/:id',
+        loadChildren: () =>
+          import('../../pages/movie-details/movie-details.module').then(
+            (m) => m.MovieDetailsPageModule
+          ),
+      },
     ],
   },
   {

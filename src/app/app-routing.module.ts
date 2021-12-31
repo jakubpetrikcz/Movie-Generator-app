@@ -7,6 +7,14 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/tabs/tabs.module').then((m) => m.TabsPageModule),
   },
+
+  /*
+  {
+    path: '',
+    loadChildren: './tabs/tabs.module#TabsPageModule',
+  },
+  */
+  /*
   {
     path: 'tab2',
     loadChildren: () =>
@@ -19,6 +27,7 @@ const routes: Routes = [
         (m) => m.MovieDetailsPageModule
       ),
   },
+  */
 ];
 @NgModule({
   imports: [

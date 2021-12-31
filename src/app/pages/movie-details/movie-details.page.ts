@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MovieService } from '../../services/movie.service';
+import { Location } from '@angular/common';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-movie-details',
@@ -17,15 +19,17 @@ export class MovieDetailsPage implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private movieService: MovieService
+    private movieService: MovieService,
+    private location: NavController
   ) {}
 
   ngOnInit() {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
 
-    this.movieService.getDetails(id).subscribe((result) => {
+    const refresh = event ? true : false;
+    this.movieService.getData(id, refresh).subscribe((result) => {
       console.log('details: ', result);
-      console.log('genres: ', result['genres']);
+      //console.log('genres: ', result['genres']);
       this.information = result;
 
       const genresName = this.information.genres.map(
@@ -54,5 +58,9 @@ export class MovieDetailsPage implements OnInit {
 
   openWebsite() {
     window.open(this.information.Website, '_blank');
+  }
+
+  myBackButton() {
+    this.location.pop();
   }
 }

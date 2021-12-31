@@ -1,6 +1,6 @@
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="background">
   <div class="wrapper-container">
-    <ion-header class="ion-no-border">
+    <ion-header class="ion-no-border header">
       <ion-toolbar>
         <ion-title size="large" class="ion-text-center">
           <a class="home-link" href="#">Movie Generator</a>
@@ -9,33 +9,17 @@
     </ion-header>
     <div class="main-content">
       <h1 class="font-h1">Recommended movies</h1>
-      <ion-slides [options]="option">
-        <ion-slide>
-          <ion-card>
-            <img src="../../assets/django.jpg" alt="" />
-          </ion-card>
-        </ion-slide>
-        <ion-slide>
-          <ion-card>
-            <img src="../../assets/django.jpg" alt="" />
-          </ion-card>
-        </ion-slide>
-        <ion-slide>
-          <ion-card>
-            <img src="../../assets/django.jpg" alt="" />
-          </ion-card>
-        </ion-slide>
-        <ion-slide>
-          <ion-card>
-            <img src="../../assets/django.jpg" alt="" />
-          </ion-card>
-        </ion-slide>
-        <ion-slide>
-          <ion-card>
-            <img src="../../assets/django.jpg" alt="" />
-          </ion-card>
-        </ion-slide>
-      </ion-slides>
+      <swiper [config]="config">
+        <ng-template swiperSlide button *ngFor="let item of (results | async)">
+          <ion-card
+            [routerLink]="['/tabs/tab1', item.id]"
+            class="movie-slider-card"
+          >
+            <img
+              [src]="'http://image.tmdb.org/t/p/w780/' + item.poster_path"
+              *ngIf="item.poster_path !== null" /></ion-card
+        ></ng-template>
+      </swiper>
       <ion-grid>
         <ion-button class="generate-btn">
           <span class="font-span">Generate</span>
