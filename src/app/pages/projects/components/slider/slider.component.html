@@ -1,0 +1,14 @@
+<ion-slides [options]="slideOpts">
+  <ion-slide button *ngFor="let item of sliderInputValue">
+    <ion-card>
+      <img
+        [ngClass]="{ 'ion-hide': isSmallSizeScreen ? true : false }"
+        src="{{ item.image }}"
+      />
+      <img
+        [ngClass]="{ 'ion-hide': !isSmallSizeScreen ? true : false }"
+        src="{{ item.posterPath }}"
+      />
+    </ion-card>
+  </ion-slide>
+</ion-slides>

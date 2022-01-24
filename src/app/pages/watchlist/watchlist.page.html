@@ -1,0 +1,44 @@
+<ion-header class="ion-no-border">
+  <ion-list lines="none" class="ion-padding-top">
+    <ion-item color="primary">
+      <ion-label>Watchlist</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <div *ngIf="results else empty">
+      <ion-grid fixed="true">
+        <ion-row>
+          <ion-col
+            button
+            *ngFor="let item of results; let i = index"
+            [routerLink]="['/watchlist', item.id]"
+            size-lg="2"
+            size-md="4"
+            size-sm="6"
+            size-xs="6"
+          >
+            <ion-button fill="clear" (click)="removeItem(item, i)">
+              <ion-icon slot="icon-only" name="trash"></ion-icon>
+            </ion-button>
+            <div>
+              <img *ngIf="item.image; else other_content" [src]="item.image" />
+              <ng-template #other_content
+                ><img
+                  [src]="'http://image.tmdb.org/t/p/original/' + item.poster_path"
+              /></ng-template>
+              <h4>{{item.title}}</h4>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <ng-template #empty>
+      <div class="ion-text-center">
+        <h2>Watchlist is empty!</h2>
+      </div>
+    </ng-template>
+  </ion-list>
+</ion-content>

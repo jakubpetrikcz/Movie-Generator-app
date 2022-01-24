@@ -4,49 +4,37 @@ import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full',
+  },
+  {
+    path: '',
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: 'home',
         loadChildren: () =>
-          import('../../pages/tab1/tab1.module').then((m) => m.Tab1PageModule),
+          import('../home/home.module').then((m) => m.HomePageModule),
       },
       {
-        path: 'tab2',
+        path: 'search',
         loadChildren: () =>
-          import('../../pages/tab2/tab2.module').then((m) => m.Tab2PageModule),
+          import('../search/search.module').then((m) => m.SearchPageModule),
       },
       {
-        path: 'tab3',
+        path: 'watchlist',
         loadChildren: () =>
-          import('../../pages/tab3/tab3.module').then((m) => m.Tab3PageModule),
+          import('../watchlist/watchlist.module').then(
+            (m) => m.WatchlistPageModule
+          ),
       },
       {
         path: 'tab4',
         loadChildren: () =>
           import('../../pages/tab4/tab4.module').then((m) => m.Tab4PageModule),
       },
-      {
-        path: 'tab1/:id',
-        loadChildren: () =>
-          import('../../pages/movie-details/movie-details.module').then(
-            (m) => m.MovieDetailsPageModule
-          ),
-      },
-      {
-        path: 'tab2/:id',
-        loadChildren: () =>
-          import('../../pages/movie-details/movie-details.module').then(
-            (m) => m.MovieDetailsPageModule
-          ),
-      },
     ],
-  },
-  {
-    path: '',
-    redirectTo: '/tabs/tab1',
-    pathMatch: 'full',
   },
 ];
 

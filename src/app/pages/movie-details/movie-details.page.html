@@ -1,51 +1,81 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+    <ion-buttons>
+      <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ genres }}</ion-title>
+    <ion-title class="logo-container">
+      <a href="/">
+        <img src="../../../assets/mg-icon.png" alt="" />
+      </a>
+    </ion-title>
+    <ion-button slot="end" fill="clear" (click)="getItems()">
+      <ion-icon slot="icon-only" class="bookmark" name="bookmark"></ion-icon>
+      <ion-icon class="add" name="add"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card *ngIf="information">
-    <img [src]="'http://image.tmdb.org/t/p/w780/' + information.poster_path" />
-    <h1>{{information.title}}</h1>
-    <h3>PLOT</h3>
-    <p>{{information.overview}}</p>
-    <div class="rating-directors">
-      <div>
-        <h4>RATING</h4>
-        <div class="score">{{information.vote_average}}</div>
-      </div>
-      <div class="director">
-        <h4>DIRECTOR</h4>
-        <p>{{directors}}</p>
-      </div>
+  <div class="main-content">
+    <div class="images-content">
+      <ion-img [src]="backGroundImage"> </ion-img>
+      <ion-badge class="badge" *ngIf="voterRating"
+        ><span>{{voterRating }}</span><i class="fas fa-star"></i
+      ></ion-badge>
     </div>
-    <div class="movie-information">
-      <ion-item>
-        <p>{{time}}</p>
-      </ion-item>
-      <ion-item>
-        <p>{{information.budget}}</p>
-      </ion-item>
-      <ion-item>
-        <p>{{information.revenue}}</p>
-      </ion-item>
-    </div>
-    <div class="actors-container">
-      <h4>ACTORS</h4>
-      <div class="actors-box">
-        <div class="actors" *ngFor="let actor of actors">
-          <img
-            [src]="'http://image.tmdb.org/t/p/w780/' + actor.profile_path"
-            *ngIf="actor.profile_path !== null"
-          />
-          <h5>{{actor.name}}</h5>
-          <p>{{actor.character}}</p>
+    <div class="information-container ion-margin-start ion-margin-end">
+      <div class="ion-margin-bottom">
+        <h1>{{title}}</h1>
+        <ion-row class="ion-justify-content-start">
+          <ion-col size="3">
+            <span>{{releaseDate}}</span>
+          </ion-col>
+          <ion-col size="3">
+            <span>{{runTime}}</span>
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <ion-toolbar>
+        <div class="ion-margin-bottom">
+          <ion-chip *ngFor="let item of genres">{{item.name}}</ion-chip>
         </div>
-      </div>
+      </ion-toolbar>
+      <p class="overview">{{overview}}</p>
     </div>
-  </ion-card>
+
+    <div class="ion-margin-end" *ngIf="crewItemList.length > 0">
+      <ion-list>
+        <ion-list-header>
+          <h3>Director</h3>
+        </ion-list-header>
+        <ion-item>
+          <ion-avatar slot="start">
+            <img *ngIf="directorImage" [src]=" directorImage" />
+          </ion-avatar>
+          <ion-label>
+            <h2>{{directorName}}</h2>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <div class="ion-margin-end" *ngIf="castItemList.length > 0">
+      <ion-list>
+        <ion-list-header>
+          <h3>Casting</h3>
+        </ion-list-header>
+
+        <ion-item *ngFor="let castItem of castItemList">
+          <ion-avatar slot="start">
+            <img *ngIf="castItem.profile_path" [src]=" castItem.profile_path" />
+          </ion-avatar>
+          <ion-label>
+            <h2>{{ castItem.name }}</h2>
+            <h4>{{ castItem.character }}</h4>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
 </ion-content>

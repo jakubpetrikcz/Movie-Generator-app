@@ -1,0 +1,48 @@
+<ion-header class="ion-no-border">
+  <ion-list lines="none" class="ion-padding-top">
+    <ion-item color="primary">
+      <ion-label>Search</ion-label>
+    </ion-item>
+  </ion-list>
+  <div class="popover">
+    <ion-searchbar [(ngModel)]="searchValue" (ionChange)="filterList()">
+    </ion-searchbar>
+  </div>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <div *ngIf="results.length > 0">
+      <ion-grid fixed="true">
+        <ion-row>
+          <ion-col
+            button
+            *ngFor="let item of results"
+            [routerLink]="['/search', item.id]"
+            size-lg="2"
+            size-md="4"
+            size-sm="6"
+            size-xs="6"
+          >
+            <div class="card">
+              <div class="card-content">
+                <ion-badge class="badge" *ngIf="item.voterRating"
+                  ><span>{{ item.voterRating }}</span><i class="fas fa-star"></i
+                ></ion-badge>
+                <img [src]="item.image" />
+                <h4>{{item.title}}</h4>
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+        <ion-infinite-scroll-content
+          loadingSpinner="bubbles"
+          loadingText="Loading more data..."
+        >
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </div>
+  </ion-list>
+</ion-content>

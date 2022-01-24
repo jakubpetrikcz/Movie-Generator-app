@@ -1,0 +1,86 @@
+<ion-header class="ion-no-border">
+  <ion-list lines="none" class="ion-padding-top">
+    <ion-item color="primary">
+      <ion-label>Movie Generator</ion-label>
+    </ion-item>
+  </ion-list>
+  <div class="popover">
+    <ion-button
+      id="trigger-button"
+      class="generate-btn"
+      (click)="getDiscoverMovie()"
+    >
+      <span class="font-span">Generate</span>
+    </ion-button>
+    <ion-modal
+      backdropDismiss="true"
+      trigger="trigger-button"
+      class="modal"
+      (click)="dismiss()"
+    >
+      <ng-template>
+        <ion-content>
+          <div class="modal-content">
+            <div class="modal-card">
+              <ion-button class="close-modal-btn" (click)="dismiss()"
+                ><ion-icon name="close-outline"></ion-icon>
+              </ion-button>
+              <ion-card button [routerLink]="['/home', id]">
+                <img [src]="image" />
+                <h4>{{title}}</h4>
+              </ion-card>
+            </div>
+          </div>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+  </div>
+</ion-header>
+<ion-content class="background">
+  <ion-item lines="none">
+    <ion-label class="title">Trends</ion-label>
+  </ion-item>
+  <div class="wrapper-container">
+    <div class="main-content">
+      <swiper [config]="slideOpts">
+        <ng-template swiperSlide button *ngFor="let item of results">
+          <ion-card>
+            <ion-button fill="clear" (click)="getItems(item)">
+              <ion-icon
+                slot="icon-only"
+                class="bookmark"
+                name="bookmark"
+              ></ion-icon>
+              <ion-icon class="add" name="add"></ion-icon>
+            </ion-button>
+            <div tappable [routerLink]="['/home', item.id]">
+              <img [src]="item.image" />
+              <h4>{{item.title}}</h4>
+            </div>
+          </ion-card>
+        </ng-template>
+      </swiper>
+      <ion-item lines="none">
+        <ion-label class="title">Top Rated</ion-label>
+      </ion-item>
+      <swiper [config]="slideOpts">
+        <ng-template swiperSlide button *ngFor="let item of topRatedResults">
+          <ion-card>
+            <ion-button fill="clear" (click)="getItems(item)">
+              <ion-icon
+                slot="icon-only"
+                class="bookmark"
+                name="bookmark"
+              ></ion-icon>
+              <ion-icon class="add" name="add"></ion-icon>
+            </ion-button>
+            <div tappable [routerLink]="['/home', item.id]">
+              <img [src]="item.image" />
+              <h4>{{item.title}}</h4>
+            </div>
+          </ion-card>
+        </ng-template>
+      </swiper>
+    </div>
+  </div>
+</ion-content>

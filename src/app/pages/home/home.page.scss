@@ -1,0 +1,181 @@
+@import "~swiper/scss";
+@import "~@ionic/angular/css/ionic-swiper";
+
+ion-header {
+  ion-list {
+    background: var(--ion-color-primary);
+    border-radius: 0 0 15px 15px;
+    padding-bottom: 6vh;
+
+    ion-item {
+      ion-label {
+        font-weight: bold;
+        font-size: 1.2rem;
+        letter-spacing: 0.5px;
+      }
+    }
+  }
+
+  .popover {
+    margin: 0 8px;
+    text-align: center;
+
+    ion-button {
+      --border-radius: 20px;
+      margin-top: -30px;
+      --box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+  }
+
+  .generate-btn {
+    margin-top: 20px;
+    width: 120px;
+    height: 3.125rem;
+    font-size: 1.2rem;
+    --background: #ff002b;
+  }
+}
+
+.background {
+  --background: var(--ion-color-light);
+
+  .title {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--ion-color-dark);
+  }
+}
+
+ion-card {
+  width: 100%;
+  position: relative;
+  box-shadow: none !important;
+  margin: 0.5rem;
+  overflow: visible;
+
+  ion-button {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    z-index: 10;
+    font-size: 2.5rem;
+    width: 50px;
+    height: 50px;
+    --background: transparent;
+    --box-shadow: none;
+    --vertical-align: middle;
+    --padding-start: 0px;
+    --padding-end: 0px;
+    margin: 0;
+
+    .bookmark {
+      color: #e01e37;
+    }
+
+    .add {
+      color: white;
+      position: absolute;
+      top: 42%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.3rem;
+    }
+  }
+
+  img {
+    object-fit: cover;
+    border-radius: 12px;
+    width: 100%;
+    transition: 600ms all ease-in-out;
+  }
+
+  h4 {
+    margin: 0.5rem;
+    margin-top: 0;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #495057;
+  }
+}
+
+.swiper-slide {
+  transition: 400ms all ease-in-out;
+  position: relative;
+}
+
+.swiper-slide-active {
+  transform: scale(1.05, 1.05);
+
+  ion-card {
+    img {
+      transform: scale(1, 1);
+    }
+  }
+}
+
+.video-card {
+  iframe {
+    border-radius: 12px;
+  }
+}
+
+.modal {
+  --background: transparent;
+  --box-shadow: none;
+
+  ion-content {
+    --background: transparent;
+    --overflow: hidden;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .modal-content {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(25%);
+  }
+
+  .modal-card {
+    max-width: 274px;
+    position: relative;
+    overflow: visible;
+
+    .close-modal-btn {
+      position: absolute;
+      top: -10px;
+      right: -5px;
+      color: white;
+      outline: none;
+      border: none;
+      z-index: 15;
+      --width: 60px;
+      --height: 60px;
+      --vertical-align: middle;
+      --padding-start: 10px;
+      --padding-end: 10px;
+      --background: #d90429;
+    }
+
+    ion-card {
+      width: auto;
+      height: auto;
+      border-radius: 12px;
+      overflow: visible;
+      border: 5px solid #ffffff;
+      background: #fff;
+    }
+
+    h4 {
+      margin: 0.5rem;
+      margin-top: 0;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #495057;
+    }
+  }
+}

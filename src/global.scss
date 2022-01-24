@@ -31,3 +31,14 @@
 * {
   font-family: "Roboto Condensed", sans-serif;
 }
+
+/*
+.ios ion-header ion-list ion-item:first-child {
+  padding-top: 24px !important;
+  min-height: 64px !important;
+}
+*/
+
+.ios ion-header ion-list ion-item:first-child ion-label {
+  padding-top: 20px !important;
+}
