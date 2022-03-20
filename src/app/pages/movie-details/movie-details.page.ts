@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Platform } from '@ionic/angular';
 import { MovieService } from '../../services/movie.service';
 
 @Component({
@@ -24,9 +25,12 @@ export class MovieDetailsPage implements OnInit {
   directorName: string;
   directorImage: string;
 
+  isMobile = true;
+
   constructor(
     private activatedRoute: ActivatedRoute,
-    private movieService: MovieService
+    private movieService: MovieService,
+    private platform: Platform
   ) {}
 
   ngOnInit() {
@@ -68,6 +72,12 @@ export class MovieDetailsPage implements OnInit {
         this.crewItemList.push(actor);
       });
     });
+  }
+
+  isMobileSize() {
+    if (this.platform.width() <= 820) {
+      return this.isMobile;
+    }
   }
 
   calcTime = (time) => {

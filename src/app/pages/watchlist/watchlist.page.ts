@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-watchlist',
@@ -7,13 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WatchlistPage implements OnInit {
   results: any = [];
-  constructor() {}
+  isMobile = true;
+
+  constructor(private platform: Platform) {}
 
   ionViewWillEnter() {
     this.getData();
   }
 
   ngOnInit() {}
+
+  isMobileSize() {
+    if (this.platform.width() <= 820) {
+      return this.isMobile;
+    }
+  }
 
   getData() {
     this.results = JSON.parse(localStorage.getItem('items'));

@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header *ngIf="isMobileSize()">
   <ion-toolbar>
     <ion-buttons>
       <ion-back-button defaultHref="/"></ion-back-button>
@@ -8,16 +8,42 @@
         <img src="../../../assets/mg-icon.png" alt="" />
       </a>
     </ion-title>
-    <ion-button slot="end" fill="clear" (click)="getItems()">
-      <ion-icon slot="icon-only" class="bookmark" name="bookmark"></ion-icon>
-      <ion-icon class="add" name="add"></ion-icon>
-    </ion-button>
   </ion-toolbar>
 </ion-header>
+
+<header *ngIf="!isMobileSize()">
+  <div class="header-container">
+    <div class="logo">
+      <a [routerLink]="['/']">
+        <img src="../../../assets/mg-icon.png" alt="logo" />
+      </a>
+    </div>
+    <nav>
+      <ul>
+        <li>
+          <a [routerLink]="['/']">Home</a>
+        </li>
+        <li>
+          <a [routerLink]="['/search']">Search</a>
+        </li>
+        <li>
+          <a [routerLink]="['/watchlist']">Watchlist</a>
+        </li>
+        <li>
+          <a href="#">Profile</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
 <ion-content>
   <div class="main-content">
     <div class="images-content">
+      <ion-button slot="end" fill="clear" (click)="getItems()">
+        <ion-icon slot="icon-only" class="bookmark" name="bookmark"></ion-icon>
+        <ion-icon class="add" name="add"></ion-icon>
+      </ion-button>
       <ion-img [src]="backGroundImage"> </ion-img>
       <ion-badge class="badge" *ngIf="voterRating"
         ><span>{{voterRating }}</span><i class="fas fa-star"></i
@@ -27,10 +53,10 @@
       <div class="ion-margin-bottom">
         <h1>{{title}}</h1>
         <ion-row class="ion-justify-content-start">
-          <ion-col size="3">
+          <ion-col size="3" sizeLg="1" sizeMd="2" sizeSm="3" sizeXs="4">
             <span>{{releaseDate}}</span>
           </ion-col>
-          <ion-col size="3">
+          <ion-col size="3" sizeLg="1" sizeMd="2" sizeSm="3" sizeXs="4">
             <span>{{runTime}}</span>
           </ion-col>
         </ion-row>
@@ -44,14 +70,17 @@
       <p class="overview">{{overview}}</p>
     </div>
 
-    <div class="ion-margin-end" *ngIf="crewItemList.length > 0">
+    <div
+      class="ion-margin-end"
+      *ngIf="crewItemList.length > 0 && isMobileSize()"
+    >
       <ion-list>
         <ion-list-header>
           <h3>Director</h3>
         </ion-list-header>
         <ion-item>
           <ion-avatar slot="start">
-            <img *ngIf="directorImage" [src]=" directorImage" />
+            <img *ngIf="directorImage" [src]="directorImage" />
           </ion-avatar>
           <ion-label>
             <h2>{{directorName}}</h2>
@@ -60,7 +89,33 @@
       </ion-list>
     </div>
 
-    <div class="ion-margin-end" *ngIf="castItemList.length > 0">
+    <div
+      class="ion-margin-end"
+      *ngIf="crewItemList.length > 0 && !isMobileSize()"
+    >
+      <ion-list>
+        <ion-list-header>
+          <h3>Director</h3>
+        </ion-list-header>
+        <ion-grid>
+          <ion-row>
+            <ion-col size-lg="2" size-md="4" size-sm="6" size-xs="6">
+              <div class="crew-img">
+                <img *ngIf="directorImage" [src]="directorImage" />
+              </div>
+              <ion-label>
+                <h2>{{directorName}}</h2>
+              </ion-label>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-list>
+    </div>
+
+    <div
+      class="ion-margin-end"
+      *ngIf="castItemList.length > 0 && isMobileSize()"
+    >
       <ion-list>
         <ion-list-header>
           <h3>Casting</h3>
@@ -68,7 +123,7 @@
 
         <ion-item *ngFor="let castItem of castItemList">
           <ion-avatar slot="start">
-            <img *ngIf="castItem.profile_path" [src]=" castItem.profile_path" />
+            <img *ngIf="castItem.profile_path" [src]="castItem.profile_path" />
           </ion-avatar>
           <ion-label>
             <h2>{{ castItem.name }}</h2>
@@ -77,5 +132,58 @@
         </ion-item>
       </ion-list>
     </div>
+
+    <div
+      class="ion-margin-end"
+      *ngIf="castItemList.length > 0 && !isMobileSize()"
+    >
+      <ion-list>
+        <ion-list-header>
+          <h3>Casting</h3>
+        </ion-list-header>
+        <ion-grid>
+          <ion-row>
+            <ion-col
+              *ngFor="let castItem of castItemList"
+              size-lg="2"
+              size-md="4"
+              size-sm="6"
+              size-xs="6"
+            >
+              <div class="crew-img">
+                <img
+                  *ngIf="castItem.profile_path"
+                  [src]="castItem.profile_path"
+                />
+              </div>
+              <ion-label>
+                <h2>{{ castItem.name }}</h2>
+                <h4>{{ castItem.character }}</h4>
+              </ion-label>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-list>
+    </div>
   </div>
+  <footer *ngIf="!isMobileSize()">
+    <div class="header-container">
+      <nav>
+        <ul>
+          <li>
+            <a [routerLink]="['/']">Home</a>
+          </li>
+          <li>
+            <a [routerLink]="['/search']">Search</a>
+          </li>
+          <li>
+            <a [routerLink]="['/watchlist']">Watchlist</a>
+          </li>
+          <li>
+            <a href="#">Profile</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
 </ion-content>

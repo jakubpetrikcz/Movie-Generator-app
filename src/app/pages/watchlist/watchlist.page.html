@@ -1,10 +1,36 @@
-<ion-header class="ion-no-border">
+<ion-header class="ion-no-border" *ngIf="isMobileSize()">
   <ion-list lines="none" class="ion-padding-top">
     <ion-item color="primary">
       <ion-label>Watchlist</ion-label>
     </ion-item>
   </ion-list>
 </ion-header>
+
+<header *ngIf="!isMobileSize()">
+  <div class="header-container">
+    <div class="logo">
+      <a [routerLink]="['/']">
+        <img src="../../../assets/mg-icon.png" alt="logo" />
+      </a>
+    </div>
+    <nav>
+      <ul>
+        <li>
+          <a [routerLink]="['/']">Home</a>
+        </li>
+        <li>
+          <a [routerLink]="['/search']">Search</a>
+        </li>
+        <li>
+          <a [routerLink]="['/watchlist']">Watchlist</a>
+        </li>
+        <li>
+          <a href="#">Profile</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
 <ion-content>
   <ion-list>
@@ -42,3 +68,24 @@
     </ng-template>
   </ion-list>
 </ion-content>
+
+<footer *ngIf="!isMobileSize()">
+  <div class="header-container">
+    <nav>
+      <ul>
+        <li>
+          <a [routerLink]="['/']">Home</a>
+        </li>
+        <li>
+          <a [routerLink]="['/search']">Search</a>
+        </li>
+        <li>
+          <a [routerLink]="['/watchlist']">Watchlist</a>
+        </li>
+        <li>
+          <a href="#">Profile</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</footer>

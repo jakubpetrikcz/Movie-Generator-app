@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Platform } from '@ionic/angular';
 import { MovieService } from 'src/app/services/movie.service';
 
 @Component({
@@ -19,13 +20,21 @@ export class SearchPage implements OnInit {
   modelType = 'movie';
   filteredGenreId: string;
 
-  constructor(private service: MovieService) {
+  isMobile = true;
+
+  constructor(private service: MovieService, private platform: Platform) {
     this.searchValue = '';
     this.selectedValue = 'movie';
   }
 
   ngOnInit() {
     this.filterList();
+  }
+
+  isMobileSize() {
+    if (this.platform.width() <= 820) {
+      return this.isMobile;
+    }
   }
 
   filterList() {

@@ -51,10 +51,12 @@ export class HomePage implements OnInit {
   videoDangerousUrl: any = [];
   isVideoEnabled: boolean;
 
+  isMobile = true;
+
   constructor(
     private service: MovieService,
     private sanitizer: DomSanitizer,
-    public platform: Platform,
+    private platform: Platform,
     public modalController: ModalController
   ) {}
 
@@ -67,6 +69,15 @@ export class HomePage implements OnInit {
     this.platform.resize.subscribe(async () => {
       this.plateFormCheck();
     });
+    // if (this.platform.isPortrait()) {
+    //   console.log('Ahoj');
+    // }
+  }
+
+  isMobileSize() {
+    if (this.platform.width() <= 820) {
+      return this.isMobile;
+    }
   }
 
   getItems(data) {
@@ -155,9 +166,8 @@ export class HomePage implements OnInit {
     } else {
       this.isSmallSizeScreen = false;
       this.slideOpts = {
-        spaceBetween: 10,
-        slidesPerView: 1.5,
-        loopedSlides: 2,
+        slidesPerView: 7.5,
+        loopedSlides: 5,
         loop: true,
       };
     }

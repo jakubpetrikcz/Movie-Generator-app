@@ -67,3 +67,96 @@ ion-header {
     }
   }
 }
+
+@media (min-width: 820px) {
+  ion-list {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    margin-top: 1.5rem;
+  }
+  ion-card {
+    img {
+      height: 225px;
+      max-width: 150px;
+    }
+  }
+
+  header {
+    background: #ffffff;
+    position: relative;
+    z-index: 10;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    .header-container {
+      width: 100%;
+      max-width: 1300px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-inline: 2rem;
+    }
+
+    .logo {
+      max-width: 100px;
+      justify-self: start;
+    }
+
+    .popover {
+      width: 100%;
+    }
+
+    ion-searchbar {
+      --border-radius: 20px;
+      --background: white;
+      --box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+
+    nav {
+      width: 100%;
+      max-width: 620px;
+
+      ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style: none;
+        li a {
+          text-decoration: none;
+          color: black;
+        }
+      }
+    }
+  }
+
+  footer {
+    background: #2b2d42;
+
+    .header-container {
+      width: 100%;
+      max-width: 1300px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-inline: 2rem;
+    }
+
+    nav {
+      width: 100%;
+      max-width: 300px;
+
+      ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style: none;
+        li a {
+          text-decoration: none;
+          color: white;
+        }
+      }
+    }
+  }
+}

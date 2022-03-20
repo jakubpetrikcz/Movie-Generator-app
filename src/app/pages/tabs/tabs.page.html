@@ -1,5 +1,10 @@
 <ion-tabs #tabs (ionTabsDidChange)="setCurrentTab()">
-  <ion-tab-bar slot="bottom" selectedTab="home" class="ion-no-border">
+  <ion-tab-bar
+    slot="bottom"
+    selectedTab="home"
+    class="ion-no-border"
+    *ngIf="isMobileSize()"
+  >
     <ion-tab-button tab="home">
       <ion-icon
         [name]="selectedTab === 'home' ? 'home' : 'home-outline'"
