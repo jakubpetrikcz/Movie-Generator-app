@@ -1,9 +1,4 @@
-<ion-header class="ion-no-border" *ngIf="isMobileSize()">
-  <ion-list lines="none" class="ion-padding-top">
-    <ion-item color="primary">
-      <ion-label>Movie Generator</ion-label>
-    </ion-item>
-  </ion-list>
+<!-- <ion-header class="ion-no-border" *ngIf="isMobileSize()">
   <div class="popover">
     <ion-button
       id="trigger-button"
@@ -25,9 +20,13 @@
               <ion-button class="close-modal-btn" (click)="dismiss()"
                 ><ion-icon name="close-outline"></ion-icon>
               </ion-button>
-              <ion-card button [routerLink]="['/home', id]">
-                <img [src]="image" />
-                <h4>{{title}}</h4>
+              <ion-card button [routerLink]="['/home', discoverResponse.id]">
+                <img
+                  [src]="'http://image.tmdb.org/t/p/original/' + discoverResponse.poster_path"
+                />
+                <ion-text color="dark">
+                  <h4>{{discoverResponse.title}}</h4>
+                </ion-text>
               </ion-card>
             </div>
           </div>
@@ -35,9 +34,11 @@
       </ng-template>
     </ion-modal>
   </div>
-</ion-header>
+</ion-header> -->
 
-<header *ngIf="!isMobileSize()">
+<app-header name="Movie Generator" showBtn="true"></app-header>
+
+<header background="dark" *ngIf="!isMobileSize()">
   <div class="header-container">
     <div class="logo">
       <a [routerLink]="['/']">
@@ -56,16 +57,24 @@
           </button>
         </li>
         <li>
-          <a [routerLink]="['/']">Home</a>
+          <a [routerLink]="['/']"
+            ><ion-text color="dark"><span>Home</span></ion-text></a
+          >
         </li>
         <li>
-          <a [routerLink]="['/search']">Search</a>
+          <a [routerLink]="['/search']"
+            ><ion-text color="dark"><span>Search</span></ion-text></a
+          >
         </li>
         <li>
-          <a [routerLink]="['/watchlist']">Watchlist</a>
+          <a [routerLink]="['/watchlist']"
+            ><ion-text color="dark"><span>Watchlist</span></ion-text></a
+          >
         </li>
         <li>
-          <a href="#">Profile</a>
+          <a href="#"
+            ><ion-text color="dark"><span>Profile</span></ion-text></a
+          >
         </li>
       </ul>
     </nav>
@@ -86,7 +95,9 @@
             </ion-button>
             <ion-card button [routerLink]="['/home', id]">
               <img [src]="image" />
-              <h4>{{title}}</h4>
+              <ion-text color="dark">
+                <h4>{{title}}</h4>
+              </ion-text>
             </ion-card>
           </div>
         </div>
@@ -97,13 +108,13 @@
 
 <ion-content class="background">
   <ion-list>
-    <ion-item lines="none">
+    <ion-item lines="none" color="transparent">
       <ion-label class="title">Trends</ion-label>
     </ion-item>
     <div class="wrapper-container">
       <div class="main-content">
         <swiper [config]="slideOpts">
-          <ng-template swiperSlide button *ngFor="let item of results">
+          <ng-template swiperSlide *ngFor="let item of results">
             <ion-card>
               <ion-button fill="clear" (click)="getItems(item)">
                 <ion-icon
@@ -115,12 +126,14 @@
               </ion-button>
               <div tappable [routerLink]="['/home', item.id]">
                 <img [src]="item.image" />
-                <h4>{{item.title}}</h4>
+                <ion-text color="dark">
+                  <h4>{{item.title}}</h4>
+                </ion-text>
               </div>
             </ion-card>
           </ng-template>
         </swiper>
-        <ion-item lines="none">
+        <ion-item lines="none" color="transparent">
           <ion-label class="title">Top Rated</ion-label>
         </ion-item>
         <swiper [config]="slideOpts">
@@ -136,7 +149,9 @@
               </ion-button>
               <div tappable [routerLink]="['/home', item.id]">
                 <img [src]="item.image" />
-                <h4>{{item.title}}</h4>
+                <ion-text color="dark">
+                  <h4>{{item.title}}</h4>
+                </ion-text>
               </div>
             </ion-card>
           </ng-template>

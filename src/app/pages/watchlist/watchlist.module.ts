@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { WatchlistPageRoutingModule } from './watchlist-routing.module';
 
 import { WatchlistPage } from './watchlist.page';
+import { HeaderComponentModule } from 'src/app/components/header/header.module';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { WatchlistPage } from './watchlist.page';
     FormsModule,
     IonicModule,
     WatchlistPageRoutingModule,
+    HeaderComponentModule,
   ],
   declarations: [WatchlistPage],
 })

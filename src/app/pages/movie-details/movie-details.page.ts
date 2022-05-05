@@ -35,6 +35,7 @@ export class MovieDetailsPage implements OnInit {
 
   ngOnInit() {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
+    console.log(typeof id);
 
     this.movieService.getDetailList(id).subscribe((detailResult) => {
       this.genres = detailResult.genres;

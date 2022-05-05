@@ -17,7 +17,6 @@ SwiperCore.use([Autoplay, Keyboard, Pagination, Scrollbar, Zoom, IonicSlides]);
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  //encapsulation: ViewEncapsulation.None,
 })
 export class HomePage implements OnInit {
   isSmallSizeScreen: boolean;
@@ -84,7 +83,6 @@ export class HomePage implements OnInit {
     const items = [];
     if (JSON.parse(localStorage.getItem('items')) === null) {
       items.push(data);
-
       localStorage.setItem('items', JSON.stringify(items));
     } else {
       const localItems = JSON.parse(localStorage.getItem('items'));
@@ -252,7 +250,7 @@ export class HomePage implements OnInit {
 
   getDiscoverMovie() {
     this.page = 1;
-    this.discoverResults = [];
+    // this.discoverResults = [];
 
     const page = Math.floor(Math.random() * (500 - 1) + 1) + 1;
     console.log(page);
@@ -260,22 +258,22 @@ export class HomePage implements OnInit {
     console.log(movie);
 
     this.service.getDiscoverList(page).subscribe((discMoviesEl) => {
-      console.log('discover', discMoviesEl);
+      // console.log('discover', discMoviesEl);
       this.discoverResponse = discMoviesEl.results[movie];
       console.log('movie', this.discoverResponse);
-      this.initializeContainer();
+      // this.initializeContainer();
     });
   }
 
-  initializeContainer() {
-    this.title = this.discoverResponse.title;
-    console.log(this.title);
-    this.image =
-      'http://image.tmdb.org/t/p/original/' + this.discoverResponse.poster_path;
-    console.log(this.image);
-    this.id = this.discoverResponse.id;
-    console.log(this.id);
-  }
+  // initializeContainer() {
+  //   this.title = this.discoverResponse.title;
+  //   // console.log(this.title);
+  //   this.image =
+  //     'http://image.tmdb.org/t/p/original/' + this.discoverResponse.poster_path;
+  //   // console.log(this.image);
+  //   this.id = this.discoverResponse.id;
+  //   // console.log(this.id);
+  // }
 
   dismiss() {
     this.modalController.dismiss({

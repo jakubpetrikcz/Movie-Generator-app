@@ -82,6 +82,8 @@ export class SearchPage implements OnInit {
   loadData(event) {
     this.page = this.page + 1;
     this.loadingCurrentEventData = event;
+    // console.log(this.loadingCurrentEventData);
+    console.log(this.page);
     if (this.searchValue.length !== 0) {
       this.loadSearchContainer();
     } else {

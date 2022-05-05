@@ -1,29 +1,4 @@
-ion-header {
-  ion-list {
-    background: var(--ion-color-primary);
-    border-radius: 0 0 15px 15px;
-    padding-bottom: 6vh;
 
-    ion-item {
-      ion-label {
-        font-weight: bold;
-        font-size: 1.2rem;
-        letter-spacing: 0.5px;
-      }
-    }
-  }
-
-  .popover {
-    margin: 0 8px;
-
-    ion-searchbar {
-      --border-radius: 20px;
-      margin-top: -30px;
-      --background: white;
-      --box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    }
-  }
-}
 
 .card {
   .card-content {
@@ -62,7 +37,7 @@ ion-header {
       margin-top: 0;
       font-size: 1rem;
       font-weight: bold;
-      color: #495057;
+      // color: #495057;
       text-align: center;
     }
   }
@@ -74,6 +49,7 @@ ion-header {
     max-width: 1300px;
     margin: 0 auto;
     margin-top: 1.5rem;
+    background: none;
   }
   ion-card {
     img {
@@ -83,7 +59,7 @@ ion-header {
   }
 
   header {
-    background: #ffffff;
+    // background: #ffffff;
     position: relative;
     z-index: 10;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -111,6 +87,7 @@ ion-header {
       --border-radius: 20px;
       --background: white;
       --box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      display: inline;
     }
 
     nav {
@@ -124,7 +101,7 @@ ion-header {
         list-style: none;
         li a {
           text-decoration: none;
-          color: black;
+          // color: black;
         }
       }
     }

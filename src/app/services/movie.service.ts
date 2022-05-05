@@ -5,7 +5,7 @@ import { tap, map, switchMap, delay } from 'rxjs/operators';
 import { CachingService } from './caching.service';
 import { Network } from '@capacitor/network';
 import { ToastController } from '@ionic/angular';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from 'src/environments/environment';
 import { ModalController } from '@ionic/angular';
 
 const apiKey = environment.apiKey;
@@ -14,7 +14,7 @@ const apiKey = environment.apiKey;
   providedIn: 'root',
 })
 export class MovieService {
-  url = 'https://api.themoviedb.org/3/';
+  url = 'https://api.themoviedb.org/3';
   currentModel = [];
   connected = true;
 
@@ -44,6 +44,7 @@ export class MovieService {
 
   getTrendingList(type: string): Observable<any> {
     const requestURL = `https://api.themoviedb.org/3/trending/${type}/day?api_key=${apiKey}&language=en-US`;
+    console.log(requestURL);
     return this.http.get(requestURL);
   }
 

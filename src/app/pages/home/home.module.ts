@@ -6,6 +6,7 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 import { SwiperModule } from 'swiper/angular';
+import { HeaderComponentModule } from 'src/app/components/header/header.module';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { SwiperModule } from 'swiper/angular';
     FormsModule,
     HomePageRoutingModule,
     SwiperModule,
+    HeaderComponentModule,
   ],
   declarations: [HomePage],
 })

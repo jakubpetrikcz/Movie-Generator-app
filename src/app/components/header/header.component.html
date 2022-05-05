@@ -1,0 +1,38 @@
+<ion-header class="ion-no-border">
+  <ion-list lines="none" class="ion-padding-top">
+    <ion-item color="primary">
+      <ion-label>{{ name }}</ion-label>
+    </ion-item>
+  </ion-list>
+  <div class="popover">
+    <div *ngIf="showBtn">
+      <ion-button id="trigger-button" class="generate-btn">
+        <span class="font-span">Generate</span>
+      </ion-button>
+      <ion-modal backdropDismiss="true" trigger="trigger-button" class="modal">
+        <ion-content>
+          <div className="modal-content">
+            <div className="modal-card">
+              <ion-button className="close-modal-btn">
+                <ion-icon name="close-outline"></ion-icon>
+              </ion-button>
+              <app-movie-card title="ahoj"></app-movie-card>
+              <!-- <ion-card>
+                <router-link :to="'/tab1/' + modalMovie.id">
+                  <img
+                    :src="imageUrl + modalMovie.poster_path"
+                    alt="movie image"
+                  />
+                  <h4>{{ modalMovie.title }}</h4>
+                </router-link>
+              </ion-card> -->
+            </div>
+          </div>
+        </ion-content>
+      </ion-modal>
+    </div>
+    <div *ngIf="showSearchBar">
+      <ion-searchbar color="light"> </ion-searchbar>
+    </div>
+  </div>
+</ion-header>

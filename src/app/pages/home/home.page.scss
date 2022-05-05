@@ -1,40 +1,6 @@
 @import "~swiper/scss";
 @import "~@ionic/angular/css/ionic-swiper";
 
-ion-header {
-  ion-list {
-    background: var(--ion-color-primary);
-    border-radius: 0 0 15px 15px;
-    padding-bottom: 6vh;
-
-    ion-item {
-      ion-label {
-        font-weight: bold;
-        font-size: 1.2rem;
-        letter-spacing: 0.5px;
-      }
-    }
-  }
-
-  .popover {
-    margin: 0 8px;
-    text-align: center;
-
-    ion-button {
-      --border-radius: 20px;
-      margin-top: -30px;
-      --box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    }
-  }
-
-  .generate-btn {
-    margin-top: 20px;
-    width: 120px;
-    height: 3.125rem;
-    font-size: 1.2rem;
-    --background: #ff002b;
-  }
-}
 
 .background {
   --background: var(--ion-color-light);
@@ -52,6 +18,7 @@ ion-card {
   box-shadow: none !important;
   margin: 0.5rem;
   overflow: visible;
+  background: transparent;
 
   ion-button {
     position: absolute;
@@ -95,7 +62,7 @@ ion-card {
     margin-top: 0;
     font-size: 1rem;
     font-weight: bold;
-    color: #495057;
+    // color: #495057;
   }
 }
 
@@ -186,6 +153,7 @@ ion-card {
     width: 100%;
     max-width: 1300px;
     margin: 0 auto;
+    background: none;
   }
   ion-card {
     img {
@@ -195,7 +163,7 @@ ion-card {
   }
 
   header {
-    background: #ffffff;
+    // background: #ffffff;
     position: relative;
     z-index: 10;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -234,7 +202,7 @@ ion-card {
         list-style: none;
         li a {
           text-decoration: none;
-          color: black;
+          // color: black;
         }
       }
     }

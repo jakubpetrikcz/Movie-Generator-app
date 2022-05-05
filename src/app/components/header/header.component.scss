@@ -1,0 +1,107 @@
+ion-header {
+  ion-list {
+    background: var(--ion-color-primary);
+    border-radius: 0 0 15px 15px;
+    padding-bottom: 6vh;
+
+    ion-item {
+      .page-title {
+        font-weight: bold;
+        font-size: 1.2rem;
+        letter-spacing: 0.5px;
+      }
+    }
+  }
+
+  .popover {
+    margin: 0 8px;
+    text-align: center;
+
+    ion-button {
+      --border-radius: 20px;
+      margin-top: -30px;
+      --box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+
+    ion-searchbar {
+      text-align: start;
+      --border-radius: 20px;
+      margin-top: -30px;
+      --background: white;
+      --box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+  }
+
+  .generate-btn {
+    margin-top: 20px;
+    width: 120px;
+    height: 3.125rem;
+    font-size: 1.2rem;
+    --background: #ff002b;
+  }
+}
+
+.modal {
+  --background: transparent;
+  --box-shadow: none;
+
+  ion-content {
+    --background: transparent;
+    --overflow: hidden;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .modal-content {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(25%);
+  }
+
+  .modal-card {
+    max-width: 274px;
+    position: relative;
+    overflow: visible;
+
+    .close-modal-btn {
+      position: absolute;
+      top: -10px;
+      right: -5px;
+      color: white;
+      outline: none;
+      border: none;
+      z-index: 15;
+      --width: 60px;
+      --height: 60px;
+      --vertical-align: middle;
+      --padding-start: 10px;
+      --padding-end: 10px;
+      --background: #d90429;
+    }
+
+    ion-card {
+      width: auto;
+      height: auto;
+      border-radius: 12px;
+      overflow: visible;
+      border: 5px solid #ffffff;
+      background: #fff;
+
+      a {
+        text-decoration: none;
+      }
+    }
+
+    h4 {
+      margin: 0.5rem;
+      margin-top: 0;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #495057;
+    }
+  }
+}

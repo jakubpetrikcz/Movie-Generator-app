@@ -1,16 +1,21 @@
-<ion-header class="ion-no-border" *ngIf="isMobileSize()">
+<!-- <ion-header class="ion-no-border" *ngIf="isMobileSize()">
   <ion-list lines="none" class="ion-padding-top">
     <ion-item color="primary">
       <ion-label>Search</ion-label>
     </ion-item>
   </ion-list>
   <div class="popover">
-    <ion-searchbar [(ngModel)]="searchValue" (ionChange)="filterList()">
+    <ion-searchbar
+      color="light"
+      [(ngModel)]="searchValue"
+      (ionChange)="filterList()"
+    >
     </ion-searchbar>
   </div>
-</ion-header>
+</ion-header> -->
+<app-header name="Search" showSearchBar="true"></app-header>
 
-<header *ngIf="!isMobileSize()">
+<header background="dark" *ngIf="!isMobileSize()">
   <div class="header-container">
     <div class="logo">
       <a [routerLink]="['/']">
@@ -21,21 +26,33 @@
       <ul>
         <li>
           <div class="popover">
-            <ion-searchbar [(ngModel)]="searchValue" (ionChange)="filterList()">
+            <ion-searchbar
+              color="light"
+              [(ngModel)]="searchValue"
+              (ionChange)="filterList()"
+            >
             </ion-searchbar>
           </div>
         </li>
         <li>
-          <a [routerLink]="['/']">Home</a>
+          <a [routerLink]="['/']"
+            ><ion-text color="dark"><span>Home</span></ion-text></a
+          >
         </li>
         <li>
-          <a [routerLink]="['/search']">Search</a>
+          <a [routerLink]="['/search']"
+            ><ion-text color="dark"><span>Search</span></ion-text></a
+          >
         </li>
         <li>
-          <a [routerLink]="['/watchlist']">Watchlist</a>
+          <a [routerLink]="['/watchlist']"
+            ><ion-text color="dark"><span>Watchlist</span></ion-text></a
+          >
         </li>
         <li>
-          <a href="#">Profile</a>
+          <a href="#"
+            ><ion-text color="dark"><span>Profile</span></ion-text></a
+          >
         </li>
       </ul>
     </nav>
@@ -62,7 +79,9 @@
                   ><span>{{ item.voterRating }}</span><i class="fas fa-star"></i
                 ></ion-badge>
                 <img [src]="item.image" />
-                <h4>{{item.title}}</h4>
+                <ion-text color="dark">
+                  <h4>{{item.title}}</h4>
+                </ion-text>
               </div>
             </div>
           </ion-col>
