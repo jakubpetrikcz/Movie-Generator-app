@@ -70,21 +70,26 @@
   </div>
 </header>
 
-<ion-content>
+<ion-content fullscreen="true">
   <ion-list>
     <div *ngIf="results.length > 0">
-      <ion-grid fixed="true">
+      <ion-grid>
         <ion-row>
           <ion-col
-            button
             *ngFor="let item of results"
-            [routerLink]="['/search', item.id]"
             size-lg="2"
             size-md="4"
             size-sm="6"
             size-xs="6"
           >
-            <div class="card">
+            <app-movie-card
+              [title]="item.title"
+              [imgSrc]="item.image"
+              [router]="['/search', item.id]"
+              [voterRating]="item.voterRating"
+              [isRatingBtn]="true"
+            ></app-movie-card>
+            <!-- <div class="card">
               <div class="card-content">
                 <ion-badge class="badge" *ngIf="item.voterRating"
                   ><span>{{ item.voterRating }}</span><i class="fas fa-star"></i
@@ -94,7 +99,7 @@
                   <h4>{{item.title}}</h4>
                 </ion-text>
               </div>
-            </div>
+            </div> -->
           </ion-col>
         </ion-row>
       </ion-grid>

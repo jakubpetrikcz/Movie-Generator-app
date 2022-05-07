@@ -9,7 +9,10 @@ export class MovieCardComponent implements OnInit {
   @Input() title: string;
   @Input() imgSrc: string;
   @Input() router: string;
-  @Input() isAddBtn: boolean;
+  @Input() voterRating: number;
+  @Input() isAddBtn?: boolean;
+  @Input() isRatingBtn?: boolean;
+  @Input() isRemoveBtn?: boolean;
 
   constructor() {}
 

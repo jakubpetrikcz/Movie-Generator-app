@@ -56,7 +56,13 @@
             size-sm="6"
             size-xs="6"
           >
-            <ion-button fill="clear" (click)="removeItem(item, i)">
+            <app-movie-card
+              [title]="item.title"
+              [imgSrc]="item.image"
+              [router]="['/watchlist', item.id]"
+              [isRemoveBtn]="true"
+            ></app-movie-card>
+            <!-- <ion-button fill="clear" (click)="removeItem(item, i)">
               <ion-icon slot="icon-only" name="trash"></ion-icon>
             </ion-button>
             <div>
@@ -68,7 +74,7 @@
               <ion-text color="dark">
                 <h4>{{item.title}}</h4>
               </ion-text>
-            </div>
+            </div> -->
           </ion-col>
         </ion-row>
       </ion-grid>

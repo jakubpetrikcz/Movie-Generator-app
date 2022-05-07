@@ -1,8 +1,19 @@
 <ion-card>
   <div *ngIf="isAddBtn">
-    <ion-button fill="clear" >
+    <ion-button fill="clear">
       <ion-icon slot="icon-only" class="bookmark" name="bookmark"></ion-icon>
       <ion-icon class="add" name="add"></ion-icon>
+    </ion-button>
+  </div>
+  <div *ngIf="isRatingBtn">
+    <ion-badge class="movie-badge">
+      <span>{{ voterRating }}</span>
+      <i class="fas fa-star"></i>
+    </ion-badge>
+  </div>
+  <div *ngIf="isRemoveBtn">
+    <ion-button fill="clear" class="remove-btn">
+      <ion-icon slot="icon-only" name="trash"></ion-icon>
     </ion-button>
   </div>
   <a [routerLink]="router">

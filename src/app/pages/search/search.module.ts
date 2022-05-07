@@ -8,6 +8,7 @@ import { SearchPageRoutingModule } from './search-routing.module';
 
 import { SearchPage } from './search.page';
 import { HeaderComponentModule } from 'src/app/components/header/header.module';
+import { MovieCardComponentModule } from 'src/app/components/movie-card/movie-card.module';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { HeaderComponentModule } from 'src/app/components/header/header.module';
     IonicModule,
     SearchPageRoutingModule,
     HeaderComponentModule,
+    MovieCardComponentModule,
   ],
   declarations: [SearchPage],
 })
