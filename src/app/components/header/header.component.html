@@ -6,33 +6,51 @@
   </ion-list>
   <div class="popover">
     <div *ngIf="showBtn">
-      <ion-button id="trigger-button" class="generate-btn">
+      <ion-button
+        id="trigger-button"
+        class="generate-btn"
+        (click)="getDiscoverMovie()"
+      >
         <span class="font-span">Generate</span>
       </ion-button>
-      <ion-modal backdropDismiss="true" trigger="trigger-button" class="modal">
-        <ion-content>
-          <div className="modal-content">
-            <div className="modal-card">
-              <ion-button className="close-modal-btn">
-                <ion-icon name="close-outline"></ion-icon>
-              </ion-button>
-              <app-movie-card title="ahoj"></app-movie-card>
-              <!-- <ion-card>
-                <router-link :to="'/tab1/' + modalMovie.id">
-                  <img
-                    :src="imageUrl + modalMovie.poster_path"
-                    alt="movie image"
-                  />
-                  <h4>{{ modalMovie.title }}</h4>
-                </router-link>
-              </ion-card> -->
+      <ion-modal
+        backdropDismiss="true"
+        trigger="trigger-button"
+        class="modal"
+        (click)="dismiss()"
+      >
+        <ng-template>
+          <ion-content>
+            <div class="modal-content">
+              <div class="modal-card">
+                <ion-button class="close-modal-btn" (click)="dismiss()">
+                  <ion-icon name="close-outline"></ion-icon>
+                </ion-button>
+                <ion-card>
+                  <a [routerLink]="['/home', discoverResponse.id]">
+                    <img
+                      [src]="
+                        'http://image.tmdb.org/t/p/original/' +
+                        discoverResponse.poster_path
+                      "
+                      alt="movie image"
+                    />
+                    <h4>{{ discoverResponse.title }}</h4>
+                  </a>
+                </ion-card>
+              </div>
             </div>
-          </div>
-        </ion-content>
+          </ion-content>
+        </ng-template>
       </ion-modal>
     </div>
     <div *ngIf="showSearchBar">
-      <ion-searchbar color="light"> </ion-searchbar>
+      <ion-searchbar
+        color="light"
+        (value)="searchText"
+        (ionChange)="handleInputChange($event)"
+      >
+      </ion-searchbar>
     </div>
   </div>
 </ion-header>

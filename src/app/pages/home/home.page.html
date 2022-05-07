@@ -106,15 +106,12 @@
   </ion-modal>
 </header>
 
-<ion-content class="background">
-  <ion-list>
-    <ion-item lines="none" color="transparent">
-      <ion-label class="title">Trends</ion-label>
-    </ion-item>
-    <div class="wrapper-container">
-      <div class="main-content">
-        <swiper [config]="slideOpts">
+<ion-content fullscreen="true">
+  <app-slider title="Trends" isTrend="true"></app-slider>
+  <app-slider title="Top Rated" isTrend="false"></app-slider>
+  <!-- <swiper [config]="slideOpts">
           <ng-template swiperSlide *ngFor="let item of results">
+            
             <ion-card>
               <ion-button fill="clear" (click)="getItems(item)">
                 <ion-icon
@@ -124,6 +121,7 @@
                 ></ion-icon>
                 <ion-icon class="add" name="add"></ion-icon>
               </ion-button>
+              
               <div tappable [routerLink]="['/home', item.id]">
                 <img [src]="item.image" />
                 <ion-text color="dark">
@@ -132,33 +130,30 @@
               </div>
             </ion-card>
           </ng-template>
-        </swiper>
-        <ion-item lines="none" color="transparent">
-          <ion-label class="title">Top Rated</ion-label>
-        </ion-item>
-        <swiper [config]="slideOpts">
-          <ng-template swiperSlide button *ngFor="let item of topRatedResults">
-            <ion-card>
-              <ion-button fill="clear" (click)="getItems(item)">
-                <ion-icon
-                  slot="icon-only"
-                  class="bookmark"
-                  name="bookmark"
-                ></ion-icon>
-                <ion-icon class="add" name="add"></ion-icon>
-              </ion-button>
-              <div tappable [routerLink]="['/home', item.id]">
-                <img [src]="item.image" />
-                <ion-text color="dark">
-                  <h4>{{item.title}}</h4>
-                </ion-text>
-              </div>
-            </ion-card>
-          </ng-template>
-        </swiper>
-      </div>
-    </div>
-  </ion-list>
+        </swiper> -->
+  <!-- <ion-item lines="none" color="transparent">
+    <ion-label class="title">Top Rated</ion-label>
+  </ion-item>
+  <swiper [config]="slideOpts">
+    <ng-template swiperSlide button *ngFor="let item of topRatedResults">
+      <ion-card>
+        <ion-button fill="clear" (click)="getItems(item)">
+          <ion-icon
+            slot="icon-only"
+            class="bookmark"
+            name="bookmark"
+          ></ion-icon>
+          <ion-icon class="add" name="add"></ion-icon>
+        </ion-button>
+        <div tappable [routerLink]="['/home', item.id]">
+          <img [src]="item.image" />
+          <ion-text color="dark">
+            <h4>{{item.title}}</h4>
+          </ion-text>
+        </div>
+      </ion-card>
+    </ng-template>
+  </swiper> -->
 </ion-content>
 <footer *ngIf="!isMobileSize()">
   <div class="header-container">

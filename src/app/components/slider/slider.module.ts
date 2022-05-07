@@ -3,20 +3,22 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
+import { SwiperModule } from 'swiper/angular';
 
-import { HeaderComponent } from './header.component';
+import { SliderComponent } from './slider.component';
+import { HomePageRoutingModule } from 'src/app/pages/home/home-routing.module';
 import { MovieCardComponentModule } from '../movie-card/movie-card.module';
-import { HomePageRoutingModule } from '../../pages/home/home-routing.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    MovieCardComponentModule,
     HomePageRoutingModule,
+    SwiperModule,
+    MovieCardComponentModule,
   ],
-  declarations: [HeaderComponent],
-  exports: [HeaderComponent],
+  declarations: [SliderComponent],
+  exports: [SliderComponent],
 })
-export class HeaderComponentModule {}
+export class SliderComponentModule {}

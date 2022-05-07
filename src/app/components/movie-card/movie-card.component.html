@@ -1,6 +1,12 @@
-<ion-card
-  ><a button [routerLink]="">
-    <img :src="imgSrc" alt="movie image" />
+<ion-card>
+  <div *ngIf="isAddBtn">
+    <ion-button fill="clear" >
+      <ion-icon slot="icon-only" class="bookmark" name="bookmark"></ion-icon>
+      <ion-icon class="add" name="add"></ion-icon>
+    </ion-button>
+  </div>
+  <a [routerLink]="router">
+    <img [src]="imgSrc" alt="movie image" />
     <h4>{{ title }}</h4>
-  </a></ion-card
->
+  </a>
+</ion-card>

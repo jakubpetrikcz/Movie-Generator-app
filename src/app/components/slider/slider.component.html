@@ -1,0 +1,35 @@
+<ion-item lines="none" color="transparent">
+  <ion-label class="title">{{ title }}</ion-label>
+</ion-item>
+<swiper
+  *ngIf="isTrend === 'true'"
+  [slidesPerView]="2"
+  [loop]="true"
+  [spaceBetween]="20"
+  [loopedSlides]="2"
+>
+  <ng-template swiperSlide *ngFor="let item of trendsList">
+    <app-movie-card
+      [title]="item.title"
+      [imgSrc]="item.image"
+      [router]="['/home', item.id]"
+      [isAddBtn]="true"
+    ></app-movie-card>
+  </ng-template>
+</swiper>
+<swiper
+  *ngIf="isTrend === 'false'"
+  [slidesPerView]="2"
+  [loop]="true"
+  [spaceBetween]="20"
+  [loopedSlides]="2"
+>
+  <ng-template swiperSlide *ngFor="let item of topList">
+    <app-movie-card
+      [title]="item.title"
+      [imgSrc]="item.image"
+      [router]="['/home', item.id]"
+      [isAddBtn]="true"
+    ></app-movie-card>
+  </ng-template>
+</swiper>

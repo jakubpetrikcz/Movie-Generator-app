@@ -42,14 +42,14 @@ export class MovieService {
     return this.http.get(requestURL);
   }
 
-  getTrendingList(type: string): Observable<any> {
-    const requestURL = `https://api.themoviedb.org/3/trending/${type}/day?api_key=${apiKey}&language=en-US`;
+  getTrendingList(): Observable<any> {
+    const requestURL = `https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}&language=en-US`;
     console.log(requestURL);
     return this.http.get(requestURL);
   }
 
-  getPopularList(type: string, page: number, genres: string): Observable<any> {
-    const requestURL = `https://api.themoviedb.org/3/${type}/popular?api_key=${apiKey}&language=en-US&page=${page}&with_genres=${genres}`;
+  getPopularList(page: number): Observable<any> {
+    const requestURL = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=${page}`;
     return this.http.get(requestURL);
   }
 
@@ -94,8 +94,8 @@ export class MovieService {
     });
   }
 
-  getSearchList(type: string, page: number, query: string): Observable<any> {
-    const requestURL = `https://api.themoviedb.org/3/search/${type}?api_key=${apiKey}&language=en-US&page=${page}&query=${query}`;
+  getSearchList(page: number, query: string): Observable<any> {
+    const requestURL = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&page=${page}&query=${query}`;
     return this.http.get(requestURL);
   }
 

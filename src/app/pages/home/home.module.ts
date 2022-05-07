@@ -7,6 +7,8 @@ import { HomePage } from './home.page';
 import { HomePageRoutingModule } from './home-routing.module';
 import { SwiperModule } from 'swiper/angular';
 import { HeaderComponentModule } from 'src/app/components/header/header.module';
+import { MovieCardComponentModule } from 'src/app/components/movie-card/movie-card.module';
+import { SliderComponentModule } from 'src/app/components/slider/slider.module';
 
 @NgModule({
   imports: [
@@ -14,8 +16,10 @@ import { HeaderComponentModule } from 'src/app/components/header/header.module';
     CommonModule,
     FormsModule,
     HomePageRoutingModule,
+    MovieCardComponentModule,
     SwiperModule,
     HeaderComponentModule,
+    SliderComponentModule,
   ],
   declarations: [HomePage],
 })

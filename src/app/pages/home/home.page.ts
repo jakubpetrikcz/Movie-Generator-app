@@ -31,9 +31,6 @@ export class HomePage implements OnInit {
   topRatedResults: any = [];
   topRatedResponse: any;
 
-  id: string;
-  title: string;
-  image: string;
 
   modelType = 'movie';
   sliderContainer: any = [];
@@ -63,7 +60,7 @@ export class HomePage implements OnInit {
     this.initializeGenreContainer();
     this.initializeTrendContainer();
     this.getTopRatedMovies();
-    this.getDiscoverMovie();
+    // this.getDiscoverMovie();
     this.plateFormCheck();
     this.platform.resize.subscribe(async () => {
       this.plateFormCheck();
@@ -172,7 +169,7 @@ export class HomePage implements OnInit {
   }
 
   getTrendMovies() {
-    this.service.getTrendingList(this.modelType).subscribe((trendMoviesEl) => {
+    this.service.getTrendingList().subscribe((trendMoviesEl) => {
       this.response = trendMoviesEl.results;
       this.response.forEach((element) => {
         this.results.push({
@@ -248,22 +245,22 @@ export class HomePage implements OnInit {
   }
   */
 
-  getDiscoverMovie() {
-    this.page = 1;
-    // this.discoverResults = [];
+  // getDiscoverMovie() {
+  //   this.page = 1;
+  //   // this.discoverResults = [];
 
-    const page = Math.floor(Math.random() * (500 - 1) + 1) + 1;
-    console.log(page);
-    const movie = Math.floor(Math.random() * 19);
-    console.log(movie);
+  //   const page = Math.floor(Math.random() * (500 - 1) + 1) + 1;
+  //   console.log(page);
+  //   const movie = Math.floor(Math.random() * 19);
+  //   console.log(movie);
 
-    this.service.getDiscoverList(page).subscribe((discMoviesEl) => {
-      // console.log('discover', discMoviesEl);
-      this.discoverResponse = discMoviesEl.results[movie];
-      console.log('movie', this.discoverResponse);
-      // this.initializeContainer();
-    });
-  }
+  //   this.service.getDiscoverList(page).subscribe((discMoviesEl) => {
+  //     // console.log('discover', discMoviesEl);
+  //     this.discoverResponse = discMoviesEl.results[movie];
+  //     console.log('movie', this.discoverResponse);
+  //     // this.initializeContainer();
+  //   });
+  // }
 
   // initializeContainer() {
   //   this.title = this.discoverResponse.title;

@@ -5,9 +5,10 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { MovieCardComponent } from './movie-card.component';
+import { HomePageRoutingModule } from 'src/app/pages/home/home-routing.module';
 
 @NgModule({
-  imports: [ CommonModule, FormsModule, IonicModule],
+  imports: [ CommonModule, FormsModule, IonicModule, HomePageRoutingModule],
   declarations: [MovieCardComponent],
   exports: [MovieCardComponent]
 })

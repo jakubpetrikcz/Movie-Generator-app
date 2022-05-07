@@ -13,7 +13,18 @@
     </ion-searchbar>
   </div>
 </ion-header> -->
-<app-header name="Search" showSearchBar="true"></app-header>
+<app-header
+  name="Search"
+  showSearchBar="true"
+  searchText="searchText"
+  (setSearchText)="segmentChanged($event)"
+></app-header>
+<!-- <ion-searchbar
+  color="light"
+  (value)="searchText"
+  (ionChange)="segmentChanged($event)"
+>
+</ion-searchbar> -->
 
 <header background="dark" *ngIf="!isMobileSize()">
   <div class="header-container">
