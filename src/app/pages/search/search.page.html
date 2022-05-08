@@ -71,25 +71,24 @@
 </header>
 
 <ion-content fullscreen="true">
-  <ion-list>
-    <div *ngIf="results.length > 0">
-      <ion-grid>
-        <ion-row>
-          <ion-col
-            *ngFor="let item of results"
-            size-lg="2"
-            size-md="4"
-            size-sm="6"
-            size-xs="6"
-          >
-            <app-movie-card
-              [title]="item.title"
-              [imgSrc]="item.image"
-              [router]="['/search', item.id]"
-              [voterRating]="item.voterRating"
-              [isRatingBtn]="true"
-            ></app-movie-card>
-            <!-- <div class="card">
+  <div *ngIf="results.length > 0">
+    <ion-grid>
+      <ion-row>
+        <ion-col
+          *ngFor="let item of results"
+          size-lg="2"
+          size-md="4"
+          size-sm="6"
+          size-xs="6"
+        >
+          <app-movie-card
+            [title]="item.title"
+            [imgSrc]="item.image"
+            [router]="['/search', item.id]"
+            [voterRating]="item.voterRating"
+            [isRatingBtn]="true"
+          ></app-movie-card>
+          <!-- <div class="card">
               <div class="card-content">
                 <ion-badge class="badge" *ngIf="item.voterRating"
                   ><span>{{ item.voterRating }}</span><i class="fas fa-star"></i
@@ -100,18 +99,18 @@
                 </ion-text>
               </div>
             </div> -->
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-      <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
-        <ion-infinite-scroll-content
-          loadingSpinner="bubbles"
-          loadingText="Loading more data..."
-        >
-        </ion-infinite-scroll-content>
-      </ion-infinite-scroll>
-    </div>
-  </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+      <ion-infinite-scroll-content
+        loadingSpinner="bubbles"
+        loadingText="Loading more data..."
+      >
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
+
   <footer *ngIf="!isMobileSize()">
     <div class="header-container">
       <nav>

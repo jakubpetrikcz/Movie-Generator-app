@@ -38,6 +38,7 @@ export class MovieDetailsPage implements OnInit {
     console.log(typeof id);
 
     this.movieService.getDetailList(id).subscribe((detailResult) => {
+      console.log(detailResult);
       this.genres = detailResult.genres;
       this.title = detailResult.title;
       this.backGroundImage =

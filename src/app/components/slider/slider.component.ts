@@ -23,7 +23,7 @@ export class SliderComponent implements OnInit {
   getTrendMovies() {
     this.service.getTrendingList().subscribe((trendMoviesEl) => {
       // this.response = trendMoviesEl.results;
-      // console.log(trendMoviesEl);
+      console.log(trendMoviesEl);
       trendMoviesEl.results.forEach((element) => {
         this.trendsList.push({
           id: element.id,

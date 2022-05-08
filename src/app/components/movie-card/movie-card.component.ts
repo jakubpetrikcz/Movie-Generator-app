@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-movie-card',
@@ -13,8 +13,38 @@ export class MovieCardComponent implements OnInit {
   @Input() isAddBtn?: boolean;
   @Input() isRatingBtn?: boolean;
   @Input() isRemoveBtn?: boolean;
+  @Input() item?: [];
+  @Input() movies?: {};
+  @Input() index?: number;
+  // @Input() removeFunction?: Function;
+  @Output() removeFunction = new EventEmitter<any>();
 
   constructor() {}
 
   ngOnInit() {}
+
+  onMyClick(movies: any, index: any) {
+    this.removeFunction.emit({movies, index});
+  }
+
+  getItems(data) {
+    const items = [];
+    if (JSON.parse(localStorage.getItem('items') || '[]') === null) {
+      items.push(data);
+      localStorage.setItem('items', JSON.stringify(items));
+    } else {
+      const localItems = JSON.parse(localStorage.getItem('items') || '[]');
+      localItems.map((details) => {
+        if (data.id !== details.id) {
+          if (items[data.title] === undefined) {
+            items[data.title] = data.title;
+          }
+          items.push(details);
+        }
+      });
+      items.push(data);
+      console.log(items);
+      localStorage.setItem('items', JSON.stringify(items));
+    }
+  }
 }

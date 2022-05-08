@@ -8,6 +8,7 @@ import { WatchlistPageRoutingModule } from './watchlist-routing.module';
 
 import { WatchlistPage } from './watchlist.page';
 import { HeaderComponentModule } from 'src/app/components/header/header.module';
+import { MovieCardComponentModule } from 'src/app/components/movie-card/movie-card.module';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { HeaderComponentModule } from 'src/app/components/header/header.module';
     IonicModule,
     WatchlistPageRoutingModule,
     HeaderComponentModule,
+    MovieCardComponentModule,
   ],
   declarations: [WatchlistPage],
 })

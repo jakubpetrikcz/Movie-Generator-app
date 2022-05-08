@@ -44,7 +44,7 @@ export class MovieService {
 
   getTrendingList(): Observable<any> {
     const requestURL = `https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}&language=en-US`;
-    console.log(requestURL);
+    // console.log(requestURL);
     return this.http.get(requestURL);
   }
 

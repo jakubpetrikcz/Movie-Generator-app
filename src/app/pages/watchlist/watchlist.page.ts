@@ -25,13 +25,16 @@ export class WatchlistPage implements OnInit {
   }
 
   getData() {
-    this.results = JSON.parse(localStorage.getItem('items'));
+    this.results = JSON.parse(localStorage.getItem("items") || "[]");
+    console.log(this.results);
   }
 
-  removeItem(e, i: number) {
-    const items = [];
+  removeItem(e: any, i: number) {
+    const items: any[] = [];
+    console.log(e);
+    // this.results = JSON.parse(localStorage.getItem('items'));
     console.log('event', this.results);
-    JSON.parse(localStorage.getItem('items')).map((data) => {
+    JSON.parse(localStorage.getItem("items") || "[]").map((data: any) => {
       if (data.id !== e.id) {
         items.push(data);
       } else {

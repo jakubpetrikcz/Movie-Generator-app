@@ -45,12 +45,10 @@
 <ion-content>
   <ion-list>
     <div *ngIf="results else empty">
-      <ion-grid fixed="true">
+      <ion-grid>
         <ion-row>
           <ion-col
-            button
             *ngFor="let item of results; let i = index"
-            [routerLink]="['/watchlist', item.id]"
             size-lg="2"
             size-md="4"
             size-sm="6"
@@ -61,6 +59,7 @@
               [imgSrc]="item.image"
               [router]="['/watchlist', item.id]"
               [isRemoveBtn]="true"
+              (removeFunction)="removeItem(item, i)"
             ></app-movie-card>
             <!-- <ion-button fill="clear" (click)="removeItem(item, i)">
               <ion-icon slot="icon-only" name="trash"></ion-icon>
