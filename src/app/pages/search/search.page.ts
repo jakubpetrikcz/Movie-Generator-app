@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Platform } from '@ionic/angular';
 import { MovieService } from 'src/app/services/movie.service';
 
 @Component({
@@ -19,12 +18,7 @@ export class SearchPage implements OnInit {
 
   popularList: any = [];
 
-  modelType = 'movie';
-  filteredGenreId: string;
-
-  isMobile = true;
-
-  constructor(private service: MovieService, private platform: Platform) {
+  constructor(private service: MovieService) {
     this.searchText = '';
     this.selectedValue = 'movie';
   }
@@ -33,18 +27,10 @@ export class SearchPage implements OnInit {
     this.filterData();
   }
 
-  isMobileSize() {
-    if (this.platform.width() <= 820) {
-      return this.isMobile;
-    }
-  }
-
   segmentChanged(event: any) {
-    console.log('ahoj');
     this.results = [];
     this.page = 1;
     this.searchText = event.target.value;
-    console.log(this.searchText);
     this.filterData();
   }
 
@@ -56,34 +42,12 @@ export class SearchPage implements OnInit {
     }
   }
 
-  // loadData(ev: any) {
-  //   this.page = this.page + 1;
-
-  //   console.log(this.page);
-  //   this.filterData();
-  //   console.log("Loaded data");
-  //   ev.target.complete();
-  // }
-
-  filterList() {
-    this.page = 1;
-    this.results = [];
-    console.log('Ahoj');
-
-    if (this.searchText.length !== 0) {
-      this.loadSearchContainer();
-    } else {
-      this.getPopularMovies();
-    }
-  }
-
   loadSearchContainer() {
     this.service
       .getSearchList(this.page, this.searchText)
       .subscribe((searchResponseEl) => {
-        console.log(searchResponseEl);
         this.response = searchResponseEl.results;
-        this.response.forEach((element) => {
+        this.response.forEach((element: any) => {
           this.results.push({
             id: element.id,
             title:
@@ -108,11 +72,9 @@ export class SearchPage implements OnInit {
       });
   }
 
-  loadData(event) {
+  loadData(event: any) {
     this.page = this.page + 1;
     this.loadingCurrentEventData = event;
-    // console.log(this.loadingCurrentEventData);
-    console.log(this.page);
     if (this.searchText.length !== 0) {
       this.loadSearchContainer();
     } else {
@@ -120,17 +82,10 @@ export class SearchPage implements OnInit {
     }
   }
 
-  selectionChanged() {
-    this.results = [];
-    this.searchText = '';
-    this.page = 1;
-  }
-
   getPopularMovies() {
     this.service.getPopularList(this.page).subscribe((trendMoviesEl) => {
-      console.log(trendMoviesEl);
       this.response = trendMoviesEl.results;
-      this.response.forEach((element) => {
+      this.response.forEach((element: any) => {
         this.results.push({
           id: element.id,
           title: element.title,

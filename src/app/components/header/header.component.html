@@ -26,6 +26,14 @@
                 <ion-button class="close-modal-btn" (click)="dismiss()">
                   <ion-icon name="close-outline"></ion-icon>
                 </ion-button>
+                <!-- <app-movie-card
+                  [title]="discoverResponse.title"
+                  [imgSrc]="
+                    'http://image.tmdb.org/t/p/original/' +
+                    discoverResponse.poster_path
+                  "
+                  [router]="['/home', discoverResponse.id]"
+                ></app-movie-card> -->
                 <ion-card>
                   <a [routerLink]="['/home', discoverResponse.id]">
                     <img
@@ -47,7 +55,7 @@
     <div *ngIf="showSearchBar">
       <ion-searchbar
         color="light"
-        (value)="searchText"
+        (value)="(searchText)"
         (ionChange)="handleInputChange($event)"
       >
       </ion-searchbar>

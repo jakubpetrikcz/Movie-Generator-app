@@ -22,9 +22,7 @@ export class SliderComponent implements OnInit {
 
   getTrendMovies() {
     this.service.getTrendingList().subscribe((trendMoviesEl) => {
-      // this.response = trendMoviesEl.results;
-      console.log(trendMoviesEl);
-      trendMoviesEl.results.forEach((element) => {
+      trendMoviesEl.results.forEach((element: any) => {
         this.trendsList.push({
           id: element.id,
           title: element.title,
@@ -39,8 +37,7 @@ export class SliderComponent implements OnInit {
 
   getTopRatedMovies() {
     this.service.getTopRatedList().subscribe((topMoviesEl) => {
-      // this.topRatedResponse = topMoviesEl.results;
-      topMoviesEl.results.forEach((element) => {
+      topMoviesEl.results.forEach((element: any) => {
         this.topList.push({
           id: element.id,
           title: element.title,

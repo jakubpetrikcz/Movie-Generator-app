@@ -1,74 +1,9 @@
-<!-- <ion-header class="ion-no-border" *ngIf="isMobileSize()">
-  <ion-list lines="none" class="ion-padding-top">
-    <ion-item color="primary">
-      <ion-label>Search</ion-label>
-    </ion-item>
-  </ion-list>
-  <div class="popover">
-    <ion-searchbar
-      color="light"
-      [(ngModel)]="searchValue"
-      (ionChange)="filterList()"
-    >
-    </ion-searchbar>
-  </div>
-</ion-header> -->
 <app-header
   name="Search"
   showSearchBar="true"
   searchText="searchText"
   (setSearchText)="segmentChanged($event)"
 ></app-header>
-<!-- <ion-searchbar
-  color="light"
-  (value)="searchText"
-  (ionChange)="segmentChanged($event)"
->
-</ion-searchbar> -->
-
-<header background="dark" *ngIf="!isMobileSize()">
-  <div class="header-container">
-    <div class="logo">
-      <a [routerLink]="['/']">
-        <img src="../../../assets/mg-icon.png" alt="logo" />
-      </a>
-    </div>
-    <nav>
-      <ul>
-        <li>
-          <div class="popover">
-            <ion-searchbar
-              color="light"
-              [(ngModel)]="searchValue"
-              (ionChange)="filterList()"
-            >
-            </ion-searchbar>
-          </div>
-        </li>
-        <li>
-          <a [routerLink]="['/']"
-            ><ion-text color="dark"><span>Home</span></ion-text></a
-          >
-        </li>
-        <li>
-          <a [routerLink]="['/search']"
-            ><ion-text color="dark"><span>Search</span></ion-text></a
-          >
-        </li>
-        <li>
-          <a [routerLink]="['/watchlist']"
-            ><ion-text color="dark"><span>Watchlist</span></ion-text></a
-          >
-        </li>
-        <li>
-          <a href="#"
-            ><ion-text color="dark"><span>Profile</span></ion-text></a
-          >
-        </li>
-      </ul>
-    </nav>
-  </div>
-</header>
 
 <ion-content fullscreen="true">
   <div *ngIf="results.length > 0">
@@ -88,17 +23,6 @@
             [voterRating]="item.voterRating"
             [isRatingBtn]="true"
           ></app-movie-card>
-          <!-- <div class="card">
-              <div class="card-content">
-                <ion-badge class="badge" *ngIf="item.voterRating"
-                  ><span>{{ item.voterRating }}</span><i class="fas fa-star"></i
-                ></ion-badge>
-                <img [src]="item.image" />
-                <ion-text color="dark">
-                  <h4>{{item.title}}</h4>
-                </ion-text>
-              </div>
-            </div> -->
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -110,25 +34,4 @@
       </ion-infinite-scroll-content>
     </ion-infinite-scroll>
   </div>
-
-  <footer *ngIf="!isMobileSize()">
-    <div class="header-container">
-      <nav>
-        <ul>
-          <li>
-            <a [routerLink]="['/']">Home</a>
-          </li>
-          <li>
-            <a [routerLink]="['/search']">Search</a>
-          </li>
-          <li>
-            <a [routerLink]="['/watchlist']">Watchlist</a>
-          </li>
-          <li>
-            <a href="#">Profile</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </footer>
 </ion-content>

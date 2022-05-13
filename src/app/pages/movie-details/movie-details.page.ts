@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Platform } from '@ionic/angular';
 import { MovieService } from '../../services/movie.service';
 
 @Component({
@@ -25,12 +24,9 @@ export class MovieDetailsPage implements OnInit {
   directorName: string;
   directorImage: string;
 
-  isMobile = true;
-
   constructor(
     private activatedRoute: ActivatedRoute,
-    private movieService: MovieService,
-    private platform: Platform
+    private movieService: MovieService
   ) {}
 
   ngOnInit() {
@@ -38,7 +34,6 @@ export class MovieDetailsPage implements OnInit {
     console.log(typeof id);
 
     this.movieService.getDetailList(id).subscribe((detailResult) => {
-      console.log(detailResult);
       this.genres = detailResult.genres;
       this.title = detailResult.title;
       this.backGroundImage =
@@ -76,13 +71,7 @@ export class MovieDetailsPage implements OnInit {
     });
   }
 
-  isMobileSize() {
-    if (this.platform.width() <= 820) {
-      return this.isMobile;
-    }
-  }
-
-  calcTime = (time) => {
+  calcTime = (time: any) => {
     const hours = Math.floor(time / 60);
     const mins = time % 60;
     return `${hours}h ${mins}m`;

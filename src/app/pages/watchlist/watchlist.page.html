@@ -1,46 +1,4 @@
-<!-- <ion-header class="ion-no-border" *ngIf="isMobileSize()">
-  <ion-list lines="none" class="ion-padding-top">
-    <ion-item color="primary">
-      <ion-label>Watchlist</ion-label>
-    </ion-item>
-  </ion-list>
-</ion-header> -->
-
 <app-header name="Watchlist"></app-header>
-
-<header background="dark" *ngIf="!isMobileSize()">
-  <div class="header-container">
-    <div class="logo">
-      <a [routerLink]="['/']">
-        <img src="../../../assets/mg-icon.png" alt="logo" />
-      </a>
-    </div>
-    <nav>
-      <ul>
-        <li>
-          <a [routerLink]="['/']"
-            ><ion-text color="dark"><span>Home</span></ion-text></a
-          >
-        </li>
-        <li>
-          <a [routerLink]="['/search']"
-            ><ion-text color="dark"><span>Search</span></ion-text></a
-          >
-        </li>
-        <li>
-          <a [routerLink]="['/watchlist']"
-            ><ion-text color="dark"><span>Watchlist</span></ion-text></a
-          >
-        </li>
-        <li>
-          <a href="#"
-            ><ion-text color="dark"><span>Profile</span></ion-text></a
-          >
-        </li>
-      </ul>
-    </nav>
-  </div>
-</header>
 
 <ion-content>
   <ion-list>
@@ -61,19 +19,6 @@
               [isRemoveBtn]="true"
               (removeFunction)="removeItem(item, i)"
             ></app-movie-card>
-            <!-- <ion-button fill="clear" (click)="removeItem(item, i)">
-              <ion-icon slot="icon-only" name="trash"></ion-icon>
-            </ion-button>
-            <div>
-              <img *ngIf="item.image; else other_content" [src]="item.image" />
-              <ng-template #other_content
-                ><img
-                  [src]="'http://image.tmdb.org/t/p/original/' + item.poster_path"
-              /></ng-template>
-              <ion-text color="dark">
-                <h4>{{item.title}}</h4>
-              </ion-text>
-            </div> -->
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -85,24 +30,3 @@
     </ng-template>
   </ion-list>
 </ion-content>
-
-<footer *ngIf="!isMobileSize()">
-  <div class="header-container">
-    <nav>
-      <ul>
-        <li>
-          <a [routerLink]="['/']">Home</a>
-        </li>
-        <li>
-          <a [routerLink]="['/search']">Search</a>
-        </li>
-        <li>
-          <a [routerLink]="['/watchlist']">Watchlist</a>
-        </li>
-        <li>
-          <a href="#">Profile</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</footer>

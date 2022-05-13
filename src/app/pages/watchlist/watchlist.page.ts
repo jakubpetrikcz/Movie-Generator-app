@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-watchlist',
@@ -8,9 +7,8 @@ import { Platform } from '@ionic/angular';
 })
 export class WatchlistPage implements OnInit {
   results: any = [];
-  isMobile = true;
 
-  constructor(private platform: Platform) {}
+  constructor() {}
 
   ionViewWillEnter() {
     this.getData();
@@ -18,23 +16,14 @@ export class WatchlistPage implements OnInit {
 
   ngOnInit() {}
 
-  isMobileSize() {
-    if (this.platform.width() <= 820) {
-      return this.isMobile;
-    }
-  }
-
   getData() {
-    this.results = JSON.parse(localStorage.getItem("items") || "[]");
+    this.results = JSON.parse(localStorage.getItem('items') || '[]');
     console.log(this.results);
   }
 
   removeItem(e: any, i: number) {
     const items: any[] = [];
-    console.log(e);
-    // this.results = JSON.parse(localStorage.getItem('items'));
-    console.log('event', this.results);
-    JSON.parse(localStorage.getItem("items") || "[]").map((data: any) => {
+    JSON.parse(localStorage.getItem('items') || '[]').map((data: any) => {
       if (data.id !== e.id) {
         items.push(data);
       } else {

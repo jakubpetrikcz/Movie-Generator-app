@@ -16,7 +16,6 @@ export class MovieCardComponent implements OnInit {
   @Input() item?: [];
   @Input() movies?: {};
   @Input() index?: number;
-  // @Input() removeFunction?: Function;
   @Output() removeFunction = new EventEmitter<any>();
 
   constructor() {}
@@ -27,14 +26,14 @@ export class MovieCardComponent implements OnInit {
     this.removeFunction.emit({movies, index});
   }
 
-  getItems(data) {
+  getItems(data: any) {
     const items = [];
     if (JSON.parse(localStorage.getItem('items') || '[]') === null) {
       items.push(data);
       localStorage.setItem('items', JSON.stringify(items));
     } else {
       const localItems = JSON.parse(localStorage.getItem('items') || '[]');
-      localItems.map((details) => {
+      localItems.map((details: any) => {
         if (data.id !== details.id) {
           if (items[data.title] === undefined) {
             items[data.title] = data.title;
@@ -43,7 +42,6 @@ export class MovieCardComponent implements OnInit {
         }
       });
       items.push(data);
-      console.log(items);
       localStorage.setItem('items', JSON.stringify(items));
     }
   }
