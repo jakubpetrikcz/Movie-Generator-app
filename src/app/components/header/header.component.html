@@ -1,7 +1,7 @@
 <ion-header class="ion-no-border">
   <ion-list lines="none" class="ion-padding-top">
     <ion-item color="primary">
-      <ion-label>{{ name }}</ion-label>
+      <ion-label class="page-title">{{ name }}</ion-label>
     </ion-item>
   </ion-list>
   <div class="popover">
@@ -26,14 +26,6 @@
                 <ion-button class="close-modal-btn" (click)="dismiss()">
                   <ion-icon name="close-outline"></ion-icon>
                 </ion-button>
-                <!-- <app-movie-card
-                  [title]="discoverResponse.title"
-                  [imgSrc]="
-                    'http://image.tmdb.org/t/p/original/' +
-                    discoverResponse.poster_path
-                  "
-                  [router]="['/home', discoverResponse.id]"
-                ></app-movie-card> -->
                 <ion-card>
                   <a [routerLink]="['/home', discoverResponse.id]">
                     <img

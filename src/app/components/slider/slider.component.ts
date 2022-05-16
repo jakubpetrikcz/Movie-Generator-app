@@ -10,7 +10,7 @@ export class SliderComponent implements OnInit {
   @Input() title: string;
   @Input() isTrend: boolean;
 
-  trendsList: any = [];
+  trendsList: [];
   topList: any = [];
 
   constructor(private service: MovieService) {}
@@ -22,31 +22,13 @@ export class SliderComponent implements OnInit {
 
   getTrendMovies() {
     this.service.getTrendingList().subscribe((trendMoviesEl) => {
-      trendMoviesEl.results.forEach((element: any) => {
-        this.trendsList.push({
-          id: element.id,
-          title: element.title,
-          descriptoin: element.overview,
-          image: 'http://image.tmdb.org/t/p/original/' + element.poster_path,
-          voterRating: element.vote_average,
-          modelItem: element,
-        });
-      });
+      this.trendsList = trendMoviesEl.results;
     });
   }
 
   getTopRatedMovies() {
     this.service.getTopRatedList().subscribe((topMoviesEl) => {
-      topMoviesEl.results.forEach((element: any) => {
-        this.topList.push({
-          id: element.id,
-          title: element.title,
-          descriptoin: element.overview,
-          image: 'http://image.tmdb.org/t/p/original/' + element.poster_path,
-          voterRating: element.vote_average,
-          modelItem: element,
-        });
-      });
+      this.topList = topMoviesEl.results;
     });
   }
 }

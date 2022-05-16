@@ -18,7 +18,6 @@ export class WatchlistPage implements OnInit {
 
   getData() {
     this.results = JSON.parse(localStorage.getItem('items') || '[]');
-    console.log(this.results);
   }
 
   removeItem(e: any, i: number) {

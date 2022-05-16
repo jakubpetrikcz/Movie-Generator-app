@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { CachingService } from './services/caching.service';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +6,5 @@ import { CachingService } from './services/caching.service';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor(private cachingService: CachingService) {
-    this.cachingService.initStorage();
-  }
+  constructor() {}
 }

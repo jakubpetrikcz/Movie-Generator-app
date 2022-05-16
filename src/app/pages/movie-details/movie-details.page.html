@@ -18,23 +18,26 @@
         <ion-icon slot="icon-only" class="bookmark" name="bookmark"></ion-icon>
         <ion-icon class="add" name="add"></ion-icon>
       </ion-button>
-      <ion-img [src]="backGroundImage"> </ion-img>
+      <ion-img
+        [src]="'http://image.tmdb.org/t/p/original/' + movie.backdrop_path"
+      >
+      </ion-img>
       <ion-badge class="badge" *ngIf="voterRating"
-        ><span>{{voterRating }}</span><i class="fas fa-star"></i
+        ><span>{{voterRating}}</span><i class="fas fa-star"></i
       ></ion-badge>
     </div>
     <div class="information-container ion-margin-start ion-margin-end">
       <div class="ion-margin-bottom">
-        <h1>{{title}}</h1>
+        <h1>{{movie.title}}</h1>
         <ion-row class="ion-justify-content-start">
           <ion-col size="3" sizeLg="1" sizeMd="2" sizeSm="3" sizeXs="4">
             <ion-text color="dark">
-              <span>{{releaseDate}}</span>
+              <span>{{ movie.release_date }}</span>
             </ion-text>
           </ion-col>
           <ion-col size="3" sizeLg="1" sizeMd="2" sizeSm="3" sizeXs="4">
             <ion-text color="dark">
-              <span>{{runTime}}</span>
+              <span>{{ runTime }}</span>
             </ion-text>
           </ion-col>
         </ion-row>
@@ -42,10 +45,10 @@
 
       <ion-toolbar>
         <div class="ion-margin-bottom">
-          <ion-chip *ngFor="let item of genres">{{item.name}}</ion-chip>
+          <ion-chip *ngFor="let item of movie.genres">{{item.name}}</ion-chip>
         </div>
       </ion-toolbar>
-      <p class="overview">{{overview}}</p>
+      <p class="overview">{{movie.overview}}</p>
     </div>
 
     <div class="ion-margin-end" *ngIf="crewItemList.length > 0">

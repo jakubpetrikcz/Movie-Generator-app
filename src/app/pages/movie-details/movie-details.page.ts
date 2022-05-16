@@ -10,15 +10,11 @@ import { MovieService } from '../../services/movie.service';
 export class MovieDetailsPage implements OnInit {
   modelType: 'movie';
 
+  movie: any = [];
+
   id: string;
-  title: string;
-  backGroundImage: string;
-  posterImage: string;
-  releaseDate: string;
-  overview: string;
   voterRating: any;
   runTime: string;
-  genres: any = [];
   crewItemList: any = [];
   castItemList: any = [];
   directorName: string;
@@ -31,18 +27,9 @@ export class MovieDetailsPage implements OnInit {
 
   ngOnInit() {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
-    console.log(typeof id);
 
     this.movieService.getDetailList(id).subscribe((detailResult) => {
-      this.genres = detailResult.genres;
-      this.title = detailResult.title;
-      this.backGroundImage =
-        'http://image.tmdb.org/t/p/original/' + detailResult.backdrop_path;
-      this.posterImage =
-        'http://image.tmdb.org/t/p/w116_and_h174_face/' +
-        detailResult.poster_path;
-      this.releaseDate = detailResult.release_date;
-      this.overview = detailResult.overview;
+      this.movie = detailResult;
       this.voterRating = detailResult.vote_average;
       this.runTime = this.calcTime(detailResult.runtime);
     });
@@ -51,7 +38,7 @@ export class MovieDetailsPage implements OnInit {
       this.crewItemList = creditResult.crew;
       this.castItemList = creditResult.cast;
 
-      this.crewItemList.filter((member) => {
+      this.crewItemList.filter((member: any) => {
         if (member.job === 'Director') {
           this.directorName = member.name;
           this.directorImage =
@@ -60,7 +47,7 @@ export class MovieDetailsPage implements OnInit {
         }
       });
 
-      this.castItemList.forEach((actor) => {
+      this.castItemList.forEach((actor: any) => {
         if (actor.profile_path) {
           actor.profile_path =
             'https://www.themoviedb.org/t/p/w138_and_h175_face/' +

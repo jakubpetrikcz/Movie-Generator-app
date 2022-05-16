@@ -2,7 +2,7 @@
 
 <ion-content>
   <ion-list>
-    <div *ngIf="results else empty">
+    <div *ngIf="results.length !== 0 else empty">
       <ion-grid>
         <ion-row>
           <ion-col
@@ -14,7 +14,7 @@
           >
             <app-movie-card
               [title]="item.title"
-              [imgSrc]="item.image"
+              [imgSrc]="'http://image.tmdb.org/t/p/original/' + item.poster_path"
               [router]="['/watchlist', item.id]"
               [isRemoveBtn]="true"
               (removeFunction)="removeItem(item, i)"
