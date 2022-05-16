@@ -2,7 +2,7 @@
   <ion-label class="title">{{ title }}</ion-label>
 </ion-item>
 <swiper
-  *ngIf="isTrend === 'true'"
+  *ngIf="isTrend"
   [slidesPerView]="2"
   [loop]="true"
   [loopedSlides]="2"
@@ -18,7 +18,7 @@
   </ng-template>
 </swiper>
 <swiper
-  *ngIf="isTrend === 'false'"
+  *ngIf="!isTrend"
   [slidesPerView]="2"
   [loop]="true"
   [loopedSlides]="2"

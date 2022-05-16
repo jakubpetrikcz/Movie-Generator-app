@@ -8,7 +8,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class MovieCardComponent implements OnInit {
   @Input() title: string;
   @Input() imgSrc: string;
-  @Input() router: string;
+  @Input() router: any;
   @Input() voterRating: number;
   @Input() isAddBtn?: boolean;
   @Input() isRatingBtn?: boolean;

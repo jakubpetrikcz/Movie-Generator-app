@@ -10,7 +10,7 @@ export class SliderComponent implements OnInit {
   @Input() title: string;
   @Input() isTrend: boolean;
 
-  trendsList: [];
+  trendsList: any = [];
   topList: any = [];
 
   constructor(private service: MovieService) {}
