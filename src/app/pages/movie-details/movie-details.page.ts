@@ -8,7 +8,6 @@ import { MovieService } from '../../services/movie.service';
   styleUrls: ['./movie-details.page.scss'],
 })
 export class MovieDetailsPage implements OnInit {
-  modelType: 'movie';
 
   movie: any = [];
 

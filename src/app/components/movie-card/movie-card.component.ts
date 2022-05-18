@@ -23,7 +23,7 @@ export class MovieCardComponent implements OnInit {
   ngOnInit() {}
 
   onMyClick(movies: any, index: any) {
-    this.removeFunction.emit({movies, index});
+    this.removeFunction.emit({ movies, index });
   }
 
   getItems(data: any) {

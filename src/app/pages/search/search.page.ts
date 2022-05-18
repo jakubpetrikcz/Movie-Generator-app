@@ -11,16 +11,11 @@ export class SearchPage implements OnInit {
   response: any;
 
   searchText: string;
-  selectedValue: any;
   page: number = 1;
-  searchCardContainer: any = [];
   loadingCurrentEventData: any;
-
-  popularList: any = [];
 
   constructor(private service: MovieService) {
     this.searchText = '';
-    this.selectedValue = 'movie';
   }
 
   ngOnInit() {
@@ -50,14 +45,9 @@ export class SearchPage implements OnInit {
         this.response.forEach((element: any) => {
           this.results.push({
             id: element.id,
-            title:
-              this.selectedValue === 'movie'
-                ? element.title
-                : element.original_name,
-            descriptoin: element.overview,
-            image: element.poster_path
-              ? 'http://image.tmdb.org/t/p/original/' + element.poster_path
-              : '../../assets/poster-holder.jpg',
+            title: element.title,
+            description: element.overview,
+            image: 'https://image.tmdb.org/t/p/w500/' + element.poster_path,
             voterRating: element.vote_average,
             modelItem: element,
           });
@@ -90,7 +80,7 @@ export class SearchPage implements OnInit {
           id: element.id,
           title: element.title,
           descriptoin: element.overview,
-          image: 'http://image.tmdb.org/t/p/original/' + element.poster_path,
+          image: 'https://image.tmdb.org/t/p/w500/' + element.poster_path,
           voterRating: element.vote_average,
           modelItem: element,
         });

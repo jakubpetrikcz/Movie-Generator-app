@@ -8,8 +8,13 @@ import { MovieCardComponent } from './movie-card.component';
 import { HomePageRoutingModule } from 'src/app/pages/home/home-routing.module';
 
 @NgModule({
-  imports: [ CommonModule, FormsModule, IonicModule, HomePageRoutingModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    HomePageRoutingModule,
+  ],
   declarations: [MovieCardComponent],
-  exports: [MovieCardComponent]
+  exports: [MovieCardComponent],
 })
 export class MovieCardComponentModule {}

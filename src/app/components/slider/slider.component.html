@@ -10,7 +10,7 @@
   <ng-template swiperSlide *ngFor="let item of trendsList">
     <app-movie-card
       [title]="item.title"
-      [imgSrc]="'http://image.tmdb.org/t/p/original/' + item.poster_path"
+      [imgSrc]="'https://image.tmdb.org/t/p/w500/' + item.poster_path"
       [router]="['/home', item.id]"
       [isAddBtn]="true"
       [item]="item"
@@ -26,7 +26,7 @@
   <ng-template swiperSlide *ngFor="let item of topList">
     <app-movie-card
       [title]="item.title"
-      [imgSrc]="'http://image.tmdb.org/t/p/original/' + item.poster_path"
+      [imgSrc]="'https://image.tmdb.org/t/p/w500/' + item.poster_path"
       [router]="['/home', item.id]"
       [isAddBtn]="true"
       [item]="item"
